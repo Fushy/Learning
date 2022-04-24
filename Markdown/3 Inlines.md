@@ -31,11 +31,13 @@ This is the [Markdown](https://en.wikipedia.org/wiki/Markdown "Markdown Wikipedi
 
 # Emphasis
 
-SSSSS *em HTML tag* SSSSS
+SSSSS _em HTML tag_ SSSSS
 
 [//]: # (Equivalent)
 
-SSSSS _em HTML tag_ SSSSS
+SSSSS *em HTML tag* SSSSS
+
+SSSSS \*em HTML tag\* SSSSS
 
 SSSSS **strong HTML tag** SSSSS
 
@@ -56,9 +58,3 @@ This is an image ![Alt text](img.jpg "Optional title")
 <img src="https://upload.wikimedia.org/wikipedia/en/0/01/RPlace2022.png" height="100" width="100" alt="rplace"/>
 
 ![rplace_img]
-
-
-
-TODO
-*literal asterisks*
-\*literal asterisks\*
