@@ -95,14 +95,10 @@ This is an H2 line
 
 * This is not within the list
 
-SSSSSSSSSSSSSSSSSSSS
-
-`?`
-`SSSSSSSSSSSSSSSSSSSS`
-
 # Tips
 
 ## It’s possible to trigger an ordered list by accident
+
 1986. This is a list
 
 1986\. This is not a list
