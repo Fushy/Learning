@@ -8,10 +8,14 @@ This is an H1 line
 ==================
 This is an H2 line
 ------------------
+
 # This is an H1 line
+
 ## This is an H2 line
+
 ###### This is an H6 line
-####### This is an H6 line
+
+###### # This is an H6 line
 
 # Blockquoting
 
@@ -25,13 +29,14 @@ This is an H2 line
 >> ssssssssssssssssssssssssssssssssssssssss
 >>> ssssssssssssssssssssssssssssssssssssssss
 >>>> ssssssssssssssssssssssssssssssssssssssss
->>> ssssssssssssssssssssssssssssssssssssssss
+> > > ssssssssssssssssssssssssssssssssssssssss
 
 > This is a blockquote with Markdown tags.
 > # This is an H1 line
->>>>>>>>>>> ###### This is an H6 line
+>> > > > > > > > > > ###### This is an H6 line
 
 # Lists
+
 ## Bulleted lists
 
 * Red
@@ -47,15 +52,18 @@ This is an H2 line
 - Blue
 
 + Red
+
 - Green
+
 + Blue
 
 * Red
-  * Green
-    * Blue
-      * Yellow
-        * Purple
+    * Green
+        * Blue
+            * Yellow
+                * Purple
 
+<a id=Numberedlists></a>
 ## Numbered lists
 
 1. One
@@ -78,23 +86,22 @@ This is an H2 line
 
 
 1. One
-   1. Two
-      1. Three
-         1. Four
+    1. Two
+        1. Three
+            1. Four
 
-*   To put a blockquote within a list item, > delimiters need to be indented
-    > SSSSSSSSSSSSSSSSSSSS
+* To put a blockquote within a list item, > delimiters need to be indented
+  > SSSSSSSSSSSSSSSSSSSS
 
-*   This is not within the list
+* This is not within the list
+
 > SSSSSSSSSSSSSSSSSSSS
-
 
 * To put a code block within a list item, the code block needs to be indented twice
 
         SSSSSSSSSSSSSSSSSSSS
 
-* This is not within the list
-        SSSSSSSSSSSSSSSSSSSS
+* This is not within the list SSSSSSSSSSSSSSSSSSSS
 
 
 * This is not within the list
