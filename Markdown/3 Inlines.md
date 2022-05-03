@@ -35,9 +35,14 @@ Go to Emphasis [Emphasis](#Emphasis).
 
 ## Local file Anchor
 
++ Use %20 to represent space into file name
++ Case sensitive
++ specify .md
++ To aim section, all minimise letter with - as space
+
 [Link to local file](1%20Syntax.md) 1 Syntax.md
 
-[Link to local file section](2%20Tags#Tips) 2 Tags.md#Tips
+[Link to local file section](2%20Tags.md#bulleted-lists) 2 Tags.md#bulleted-lists
 
 <!-- ##  [sub-section](./1 Syntax.md) -->
 
