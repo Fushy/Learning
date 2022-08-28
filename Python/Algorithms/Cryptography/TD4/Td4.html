@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGED" CONTENT="20140404;8185200">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 2cm }
+		H1 { margin-bottom: 0.21cm }
+		H1.western { font-family: "Liberation Sans", sans-serif; font-size: 16pt }
+		H1.cjk { font-family: "AR PL UMing CN"; font-size: 16pt }
+		H1.ctl { font-family: "FreeSans"; font-size: 16pt }
+		P { margin-bottom: 0.21cm }
+		PRE.cjk { font-family: "AR PL UMing CN", monospace }
+		PRE.ctl { font-family: "FreeSans", monospace }
+		H3 { margin-bottom: 0.21cm }
+		H3.western { font-family: "Liberation Sans", sans-serif }
+		H3.cjk { font-family: "AR PL UMing CN" }
+		H3.ctl { font-family: "FreeSans" }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="fr-FR" DIR="LTR">
+<H1 CLASS="western"><FONT SIZE=5 STYLE="font-size: 20pt">Cryptographie
+– TD5</FONT></H1>
+<H1 CLASS="western"><FONT SIZE=5>Arithmétique et cryptographie
+asymétrique</FONT></H1>
+<P><BR><BR>
+</P>
+<H3 CLASS="western">Exercice 1 
+</H3>
+<P>Écrire une classe RSA prenant comme paramètres <FONT FACE="DejaVu Sans Mono, monospace">p,
+q</FONT> et <FONT FACE="DejaVu Sans Mono, monospace">e</FONT>. En
+principe, e est choisi aléatoirement mais on aura aussi besoin de
+pouvoir l'imposer.</P>
+<P>Elle calculera <FONT FACE="DejaVu Sans Mono, monospace">n</FONT>
+et <FONT FACE="DejaVu Sans Mono, monospace">d</FONT> et proposera les
+méthodes <FONT FACE="DejaVu Sans Mono, monospace">crypt</FONT> et
+<FONT FACE="DejaVu Sans Mono, monospace">uncrypt</FONT>.</P>
+<PRE CLASS="western">class RSA:
+    def __init__(self,p,q,e):
+        ...
+
+    def crypt(self,x):
+        ...
+    def uncrypt(self,y):
+        ...</PRE><P>
+En créer une instance avec les valeurs suivantes&nbsp;:</P>
+<P><BR><BR>
+</P>
+<PRE CLASS="western">p =  1113954325148827987925490175477024844070922844843
+q =  1917481702524504439375786268230862180696934189293
+e =  3</PRE><P>
+Chiffrer maintenant le message représenté par l'entier suivant&nbsp;:</P>
+<PRE CLASS="western" STYLE="margin-bottom: 0.5cm">v = 1808808319415691415062465989446183136395423154715795462152356725976667671981921260211627443446049</PRE><P>
+Convertir le résultat en hexadécimal, et faire une remarque
+pertinente.</P>
+<H3 CLASS="western">Exercice 2</H3>
+<P>Comme vous n'avez pas manqué de le remarquer, le résultat n'est
+pas aléatoire. 
+</P>
+<P>Cet entier a été extrait d'une carte bancaire (authentique) de
+numéro 4972030440233370 et expirant en juin 2002. 
+</P>
+<P>Le calcul que vous venez d'effectuer (chiffrer un message avec une
+clef publique) était celui effectué par les terminaux de paiement
+et les distributeurs de billets. 
+</P>
+<P>L'entier v ci dessus est la valeur d'authentification de la carte,
+calculée en chiffrant avec la clef secrète des données écrites en
+clair dans une autre zone de la carte.</P>
+<P>En quoi ce procédé permet-il d'authentifier la carte&nbsp;?</P>
+<P>Les processeurs des cartes a puces interprètent des instructions
+appelées APDU (Application Protocol Data Unit) composées de deux
+octets obligatoires CLA (Class) et INS (Instruction) et de
+paramètres, par exemple une adresse (en quartets) et le nombre
+d'octets à lire. 
+</P>
+<P>Le résultat se compose des données demandées et de deux octets
+SW1, SW2 indiquant si tout s'est bien passé. On obtient la valeur
+d'authentification ainsi (au moyen d'un programme python utilisant
+l'interface pyscard pour pcsclite)&nbsp;:</P>
+<PRE CLASS="western" STYLE="font-variant: normal; font-style: normal"># valeur d'authentification : 48 octets lus à l'adresse 0800:
+APDU envoyée : bcb0080030
+30 00 0d 8c 39 8e 8f b2 31 d8 43 c7 38 06 cd 6d | 0...9...1.C.8..m
+3e aa 30 d7 33 ab 49 65 35 15 ce af 36 62 ca 1c | &gt;.0.3.Ie5...6b..
+31 50 2a ab 33 b9 df 5e 37 fb 0d b7 3d 15 61 21 | 1P*.3..^7...=.a!
+ <SPAN STYLE="font-style: normal">(SW1,SW2) = (90, 0)</SPAN>
+# On supprime les 3 de redondance tous les 4 octets
+
+0 00 0d 8c 9 8e 8f b2 1 d8 43 c7 8 06 cd 6d
+e aa 30 d7 3 ab 49 65 5 15 ce af 6 62 ca 1c
+1 50 2a ab 3 b9 df 5e 7 fb 0d b7 d 15 61 21
+
+# Et on obtient la valeur d'authentification en hexadécimal:
+v=0x0000d8c98e8fb21d843c7806cd6deaa30d73ab4965515ceaf662ca1c1502aab3b9df5e7fb0db7d156121</PRE><P>
+La mémoire de la carte se compose de plusieurs zones&nbsp;: la zone
+en lecture libre dont le contenu complet est donné ci-dessous, la
+zone confidentielle accessible avec présentation du code PIN, et la
+zone secrète, accessible seulement au processeur de la carte.</P>
+<P>Le décodage de l'hexadécimal en ASCII n'est pas très lisible,
+car les données contiennent un quartet «&nbsp;3&nbsp;» tous les 4
+octets pour la synchronisation du lecteur. 
+</P>
+<P>Les données sont écrites dans les «&nbsp;zones prestataires&nbsp;»,
+identifiées par un octet 2E suivi du numéro de prestataire, du
+nombre d'octets à lire (en hexadécimal), et</P>
+<P>d'un quatrième octet. On trouve donc ci dessous la zones
+prestataire 2E 03 30 33, composée de 0x30 = 48 octets, puis la zone
+2E 02 38 F1, composée de 0x38=56 octets. 
+</P>
+<P>C'est cette dernière qui contient les données d'identification. 
+</P>
+<P>Après avoir éliminé les quartets de contrôle, examiner
+successivement l'hexadécimal et l'ASCII de la chaine obtenue. 
+</P>
+<P>Si le décodage est correct, les premiers digits hexadécimaux
+encodent le numéro de la carte et la date d'expiration, tandis que
+les suivants codent le nom du titulaire. 
+</P>
+<PRE CLASS="western" STYLE="margin-bottom: 0.5cm">APDU envoyée : BCB007f880
+2E 03 30 33 30 00 0D 8C 39 8E 8F B2 31 D8 43 C7 | ..030..9²1ØCÇ
+38 06 CD 6D 3E AA 30 D7 33 AB 49 65 35 15 CE AF | 8.Ím&gt;ª0×3«Ie5#Î¯
+36 62 CA 1C 31 50 2A AB 33 B9 DF 5E 37 FB 0D B7 | 6bÊ#1P*«3¹ß^7û.·
+3D 15 61 21 2E 02 38 F1 30 04 97 20 33 04 40 23 | =#a!..8ñ0. 3.@#
+33 37 0F FF 31 01 00 06 32 50 02 06 32 50 34 97 | 37.ÿ1...2P..2P4
+35 44 84 94 32 4F 4E 2F 34 D4 F4 E4 39 51 55 45 | 5D2ON/4Ôôä9QUE
+32 02 02 02 30 20 20 20 32 02 02 02 30 20 F2 00 | 2...0   2...0 ò.
+2E 16 70 3A 30 00 07 FE 3B 4B EC 14 39 5A 92 E6 | .#p:0..þ;Kì#9Zæ
+(SW1,SW2) = (90, 00)
+APDU envoyée : BCB008f880
+32 97 FD 76 30 BB A2 E0 32 D2 7F 93 3A 5E 34 92 | 2ýv0»¢à2Ò:^4
+3F 00 1F 9F 3C DE 5B 80 3F A9 65 0F 37 A0 A2 D8 | ?.#&lt;Þ[?©e.7¢Ø
+31 50 D2 4F 36 AD 38 85 31 44 09 70 31 89 BC 06 | 1PÒO681D.p1¼.
+34 3F AE E4 30 D7 73 9B 3D BF 06 58 32 0B AE 9F | 4?®ä0×s=¿.X2.®
+31 97 15 E5 3F 93 FC D7 3A A3 E9 09 3D AD A2 9D | 1#å?ü×:£é.=¢
+3F C1 BB 13 3C 56 C8 92 3A 22 78 55 34 B2 A8 D5 | ?Á».&lt;VÈ:&quot;xU4²¨Õ
+3C 79 7C A4 14 DF F5 16 1F F4 0A C3 0A C3 0A 57 | &lt;y|¤#ßõ##ô.Ã.Ã.W
+09 F1 08 D9 3F E5 20 02 08 4D 00 94 16 4D B2 21 | .ñ.Ù?å ..M.#M²!
+(SW1,SW2) = (90, 00)
+APDU envoyée : BCB009f880
+D1 EC 9F FF 00 00 00 00 00 00 00 00 00 00 00 00 | Ñìÿ............
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 | ................
+(SW1,SW2) = (90, 00)
+&gt;&gt;&gt;</PRE><P>
+Retrouver le nom du titulaire, le numéro de la carte et la date
+d'expiration à partir des données ci dessus.</P>
+<P>Vous connaissez la clef privée du système et la méthode
+d'authentification. Construisez les données</P>
+<P>d'une fausse carte au nom GERARD MANSOIF, de numéro <SPAN STYLE="font-variant: normal"><SPAN STYLE="font-style: normal">3141
+5926 5358 9793 (?) et</SPAN></SPAN></P>
+<P STYLE="font-variant: normal; font-style: normal">de date
+d'expiration 13/13.</P>
+<PRE CLASS="western" STYLE="margin-bottom: 0.5cm"> </PRE><H3 CLASS="western" STYLE="font-variant: normal; font-style: normal">
+Exercice 3</H3>
+<P><BR><BR>
+</P>
+<P><IMG SRC="g.jpg" NAME="images1" ALIGN=LEFT WIDTH=300 HEIGHT=192 BORDER=0><BR><BR>
+</P>
+<P>En 2004, la société google avait affiché ce panneau
+publicitaire dans la silicon valley. 
+</P>
+<P>Ceux qui connaissaient la réponse pouvaient trouver à l'URL
+ainsi construite une autre énigme. 
+</P>
+<P>Ceux qui la résolvaient avaient alors droit à un entretien
+d'embauche.</P>
+<P>Dans son cours de cryptographie du MIT, Ron Rivest (de RSA!)
+propose aux étudiants la variante plus difficile suivante.</P>
+<P>Trouver dans les décimales de e la première suite de 2O chiffres
+qui soit un nombre premier de Sophie Germain.</P>
+<P>Indication&nbsp;: le module decimal de python permet le calcul sur
+des flottants en précision arbitraire.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H3 CLASS="western">Exercice 4</H3>
+<P><BR><BR>
+</P>
+<P>Alice, Bob et Charlie utilisent le système RSA avec le même
+exposant public e = 3 (on a vu que c'était possible dans le monde
+réel), et ont respectivement pour modules</P>
+<PRE CLASS="western">na = 2135987035920910082395022704999628797051095341826417406442524165008583957746445088405009430865999
+nb = 2135987035920910082395022704999628797162490781344963051155377956280967195101981889839850702671619
+nc = 2135987035920910082395022704999628896193030374617175691844152549530769669304774519830221356585511</PRE><P>
+<BR><BR>
+</P>
+<P>Douglas leur envoie à tous les trois le même message, chiffré
+avec les trois clefs publiques</P>
+<P><BR><BR>
+</P>
+<PRE CLASS="western">ya = 1704530022978544318071261282029959269089776023381678967531907665026466268332863367550402288250742
+yb = 1704520499835949615592131996885727697345627882180875786884636832758759452639025264678208940201982
+yc = 1696054426594054895613006544606777272432734244621789015588464666648043681903785330811909500673766</PRE><P>
+<BR><BR>
+</P>
+<P>Vouis avez intercepté les trois cryptogrammes. Décryptez le
+message (sans chercher à factoriser les clefs). Le passage du texte
+clair (chaînes) aux nombres se fait à l'aide des fonctions</P>
+<P><BR><BR>
+</P>
+<PRE CLASS="western">def s2i(s):
+    return int(s.encode('hex'),16)
+
+def i2s(m):
+    t = hex(m)[2:-1]
+    if len(t)%2: t='0'+t
+    return t.decode('hex')</PRE><P>
+Par exemple</P>
+<PRE CLASS="western">&gt;&gt;&gt; s2i('Abracadabra')
+79045080136656252607558241L
+&gt;&gt;&gt; i2s(_)
+'Abracadabra'
+&gt;&gt;&gt; </PRE><P>
+Le module decimal mentionné dans l'exercice précédent vous
+permettra de calculer la racine cubique d'un grand nombre réel
+(pourvu que la notion de logarithme ne vous soit pas totalement
+étrangère).</P>
+</BODY>
+</HTML>

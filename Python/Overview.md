@@ -60,12 +60,12 @@
 
 ### Byte representation
 
-+ Big-Endian order
++ Little-Endian order
 + There’s no sign bit at all
 + All integers are signed (all numbers have an implicit sign attached to them)
 + Integers are stored as if there were an infinite number of bits at your disposal
 + Follows a custom adaptive strategy that works like sign-magnitude with an unlimited number of bits
-+ Use IEEE 754 standard to represent floating number
++ IEEE 754 standard to represent floating number
 
 ### Operators
 
@@ -95,8 +95,7 @@
 #### Bitwise
 
 + Not lazily
-+ Designed primarily to work with integers
-+ Return int type
++ Designed primarily to work with integers, return int type
 + Are often overloaded
 
 + a & b
@@ -121,6 +120,8 @@
 + a ^= b
 
 ### Type
+
+#### Builtins Type
 
 + Strings \
   Are represented as arrays of Unicode code points (ordinal values).

@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Chiffre de Hill — Wikipédia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":[",\t."," \t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],"wgMonthNamesShort":["","janv.","fév.","mars","avr.","mai","juin","juill.","août","sept.","oct.","nov.","déc."],"wgRequestId":"XhCP-QpAICsAACwp-mEAAADH","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Chiffre_de_Hill","wgTitle":"Chiffre de Hill","wgCurRevisionId":164487278,"wgRevisionId":164487278,"wgArticleId":3784528,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Portail:Cryptologie/Articles liés","Portail:Informatique/Articles liés","Chiffrement par substitution"],"wgPageContentLanguage":"fr","wgPageContentModel":"wikitext",
+"wgRelevantPageName":"Chiffre_de_Hill","wgRelevantArticleId":3784528,"wgIsProbablyEditable":!0,"wgRelevantPageIsProbablyEditable":!0,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgMediaViewerOnClick":!0,"wgMediaViewerEnabledByDefault":!0,"wgPopupsReferencePreviews":!1,"wgPopupsConflictsWithNavPopupGadget":!1,"wgVisualEditor":{"pageLanguageCode":"fr","pageLanguageDir":"ltr","pageVariantFallbacks":"fr"},"wgMFDisplayWikibaseDescriptions":{"search":!0,"nearby":!0,"watchlist":!0,"tagline":!0},"wgWMESchemaEditAttemptStepOversample":!1,"wgULSCurrentAutonym":"français","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q2454939","wgCentralAuthMobileDomain":!1,"wgEditSubmitButtonLabelPublish":!0};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready",
+"mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.gadget.ArchiveLinks","ext.gadget.MonobookToolbarStandard","ext.gadget.Wdsearch","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.compactlinks","ext.uls.interface","ext.cx.eventlogging.campaigns","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1dpod",function($,jQuery,require,module){/*@nomin*/mw.user.options.set({"variant":"fr"});
+});mw.loader.implement("user.tokens@tffin",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=fr&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.toc.styles%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=fr&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=fr&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.35.0-wmf.11"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<link rel="alternate" href="android-app://org.wikipedia/http/fr.m.wikipedia.org/wiki/Chiffre_de_Hill"/>
+<link rel="alternate" type="application/x-wiki" title="Modifier" href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit"/>
+<link rel="edit" title="Modifier" href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipédia (fr)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//fr.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://fr.wikipedia.org/wiki/Chiffre_de_Hill"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Chiffre_de_Hill rootpage-Chiffre_de_Hill skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="fr">Chiffre de Hill</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">Un article de Wikip&eacute;dia, l&#039;encyclop&eacute;die libre.</div>
+		<div id="contentSub"></div>
+		
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Sauter &agrave; la navigation</a>
+		<a class="mw-jump-link" href="#p-search">Sauter &agrave; la recherche</a>
+		<div id="mw-content-text" lang="fr" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>En <a href="/wiki/Cryptographie_sym%C3%A9trique" title="Cryptographie symétrique">cryptographie symétrique</a>, le <b>chiffre de Hill</b> est un modèle simple d'extension du <a href="/wiki/Chiffre_affine" title="Chiffre affine">chiffrement affine</a> à un <a href="/wiki/Chiffrement_par_bloc" title="Chiffrement par bloc">bloc</a>. Ce système étudié par <a href="/wiki/Lester_S._Hill" title="Lester S. Hill">Lester S. Hill</a><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite_crochet">[</span>1<span class="cite_crochet">]</span></a></sup>, utilise les propriétés de l'<a href="/wiki/Congruence_sur_les_entiers" title="Congruence sur les entiers">arithmétique modulaire</a> et des <a href="/wiki/Matrice_(math%C3%A9matiques)" title="Matrice (mathématiques)">matrices</a>.
+</p><p>Il consiste à chiffrer le message en substituant les lettres du message, non plus lettre à lettre, mais par groupe de lettres. Il permet ainsi de rendre plus difficile le <a href="/wiki/Cryptanalyse" title="Cryptanalyse">cassage du code</a> par <a href="/wiki/Analyse_fr%C3%A9quentielle" title="Analyse fréquentielle">observation des fréquences</a>.
+</p><p>Lester S. Hill a aussi conçu une machine capable de réaliser mécaniquement un tel codage<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite_crochet">[</span>2<span class="cite_crochet">]</span></a></sup>.
+</p>
+<div id="toc" class="toc"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="fr" dir="ltr"><h2>Sommaire</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Principe"><span class="tocnumber">1</span> <span class="toctext">Principe</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Illustration_sur_un_exemple_simple"><span class="tocnumber">2</span> <span class="toctext">Illustration sur un exemple simple</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Chiffrement"><span class="tocnumber">2.1</span> <span class="toctext">Chiffrement</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Déchiffrement"><span class="tocnumber">2.2</span> <span class="toctext">Déchiffrement</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Cryptanalyse"><span class="tocnumber">3</span> <span class="toctext">Cryptanalyse</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Sources"><span class="tocnumber">4</span> <span class="toctext">Sources</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Notes_et_références"><span class="tocnumber">5</span> <span class="toctext">Notes et références</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Principe">Principe</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="Modifier la section : Principe">modifier</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit&amp;section=1" title="Modifier la section : Principe">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Chaque caractère est d'abord codé par un nombre compris entre 0 et <i>n</i> – 1 (son rang dans l'alphabet diminué de 1 ou son <a href="/wiki/Code_ASCII" class="mw-redirect" title="Code ASCII">code ASCII</a> diminué de 32). Les caractères sont alors regroupés par blocs de <i>p</i> caractères formant un certain nombre de <a href="/wiki/Vecteur" title="Vecteur">vecteurs</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X=(x_{1},x_{2},\cdots ,x_{p})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X=(x_{1},x_{2},\cdots ,x_{p})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1f8ebfccca50d5757c9157303ca6a84aa736bd61" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:20.257ex; height:3.009ex;" alt="X=(x_{1},x_{2},\cdots ,x_{p})"/></span>. Les nombres <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e87000dd6142b81d041896a30fe58f0c3acb2158" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.129ex; height:2.009ex;" alt="x_{i}"/></span> étant compris entre 0 et <i>n</i> – 1, on peut les considérer comme des éléments de <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} /n\mathbb {Z} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">Z</mi>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">Z</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} /n\mathbb {Z} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f2120ebbc85f91df66c6de5446367bf9fd620844" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.658ex; height:2.843ex;" alt="\Z/n\Z"/></span> et <i>X</i> est alors un élément de <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (\mathbb {Z} /n\mathbb {Z} )^{p}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">Z</mi>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">Z</mi>
+        </mrow>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (\mathbb {Z} /n\mathbb {Z} )^{p}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4d2545238fc2ef18ea9739820ec6287ac76c176" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.526ex; height:2.843ex;" alt="(\mathbb{Z } /n\mathbb{Z } )^{p}"/></span>.
+</p><p>On a construit au préalable une matrice <i>p</i> × <i>p</i> d'entiers&#160;: <i>A</i>. Le bloc <i>X</i> est alors chiffré par le bloc <i>Y = AX</i>, le produit s'effectuant modulo <i>n</i>.
+</p><p>Pour déchiffrer le message, il s'agit d'<a href="/wiki/Matrice_inversible" title="Matrice inversible">inverser la matrice <i>A</i></a> modulo <i>n</i>. Cela peut se faire si le <a href="/wiki/D%C3%A9terminant_(math%C3%A9matiques)" title="Déterminant (mathématiques)">déterminant</a> de cette matrice possède un <a href="/wiki/Inverse_modulaire" title="Inverse modulaire">inverse modulo <i>n</i></a> (c'est-à-dire, d'après le <a href="/wiki/Th%C3%A9or%C3%A8me_de_Bachet-B%C3%A9zout" title="Théorème de Bachet-Bézout">théorème de Bachet-Bézout</a>, si det(<i>A</i>) est <a href="/wiki/Premier_avec" class="mw-redirect" title="Premier avec">premier avec</a> <i>n</i>).
+</p><p>En effet, le produit de <i>A</i> et de la <a href="/wiki/Matrice_transpos%C3%A9e" title="Matrice transposée">transposée</a> de sa <a href="/wiki/Comatrice" title="Comatrice">comatrice</a> donne
+<span style="display: block; margin-left:1.6em;"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle A~^{\operatorname {t} }\!{\rm {com}}A={^{\operatorname {t} }\!{\rm {com}}A}~A=\det A~I_{p}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>A</mi>
+        <msup>
+          <mtext>&#xA0;</mtext>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">t</mi>
+          </mrow>
+        </msup>
+        <mspace width="negativethinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">c</mi>
+            <mi mathvariant="normal">o</mi>
+            <mi mathvariant="normal">m</mi>
+          </mrow>
+        </mrow>
+        <mi>A</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msup>
+            <mi></mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">t</mi>
+            </mrow>
+          </msup>
+          <mspace width="negativethinmathspace" />
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">c</mi>
+              <mi mathvariant="normal">o</mi>
+              <mi mathvariant="normal">m</mi>
+            </mrow>
+          </mrow>
+          <mi>A</mi>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mi>A</mi>
+        <mo>=</mo>
+        <mo movablelimits="true" form="prefix">det</mo>
+        <mi>A</mi>
+        <mtext>&#xA0;</mtext>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A~^{\operatorname {t} }\!{\rm {com}}A={^{\operatorname {t} }\!{\rm {com}}A}~A=\det A~I_{p}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a71f1956e6ccb18e7c544ad9e92389bf2b0862b4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:31.584ex; height:3.176ex;" alt="A~^{{\operatorname t}}\!{{\rm {com}}}A={^{{\operatorname t}}\!{{\rm {com}}}A}~A=\det A~I_{p}"/></span></span>
+(où <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle I_{p}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle I_{p}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3226e9ad60e659391806720213f9c5f6123a70f8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.082ex; height:2.843ex;" alt="I_p"/></span> désigne la <a href="/wiki/Matrice_identit%C3%A9" title="Matrice identité">matrice identité</a> de taille <i>p</i>) donc s'il existe un entier <i>k</i> tel que
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k\times \det(A)\equiv 1{\pmod {n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mo movablelimits="true" form="prefix">det</mo>
+        <mo stretchy="false">(</mo>
+        <mi>A</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2261;<!-- ≡ --></mo>
+        <mn>1</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mspace width="1em" />
+          <mo stretchy="false">(</mo>
+          <mi>mod</mi>
+          <mspace width="0.333em" />
+          <mi>n</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k\times \det(A)\equiv 1{\pmod {n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1b9b4fd13c741b6c894d97e086534f74d990bdaa" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:26.173ex; height:2.843ex;" alt="k\times \det(A)\equiv 1{\pmod  n}"/></span></dd></dl>
+<p>alors, en notant <i>B</i> n'importe quelle matrice congrue modulo <i>n</i> à <i>k</i> <sup>t</sup>com(<i>A</i>), on aura
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle AB\equiv BA\equiv I_{p}{\pmod {n}},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>A</mi>
+        <mi>B</mi>
+        <mo>&#x2261;<!-- ≡ --></mo>
+        <mi>B</mi>
+        <mi>A</mi>
+        <mo>&#x2261;<!-- ≡ --></mo>
+        <msub>
+          <mi>I</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mspace width="1em" />
+          <mo stretchy="false">(</mo>
+          <mi>mod</mi>
+          <mspace width="0.333em" />
+          <mi>n</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle AB\equiv BA\equiv I_{p}{\pmod {n}},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2e561d5578677327781b34f5abe14ae4ac9daf15" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:27.019ex; height:3.009ex;" alt="AB\equiv BA\equiv I_{p}{\pmod  n},"/></span></dd></dl>
+<p>soit encore 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y=AX\Leftrightarrow X=BY.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>Y</mi>
+        <mo>=</mo>
+        <mi>A</mi>
+        <mi>X</mi>
+        <mo stretchy="false">&#x21D4;<!-- ⇔ --></mo>
+        <mi>X</mi>
+        <mo>=</mo>
+        <mi>B</mi>
+        <mi>Y</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y=AX\Leftrightarrow X=BY.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b3e04d1ea19fe82abc936a97687c2f0cfa7bfd6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:21.472ex; height:2.176ex;" alt="Y=AX\Leftrightarrow X=BY."/></span></dd></dl>
+<h2><span class="mw-headline" id="Illustration_sur_un_exemple_simple">Illustration sur un exemple simple</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="Modifier la section : Illustration sur un exemple simple">modifier</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit&amp;section=2" title="Modifier la section : Illustration sur un exemple simple">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>On imagine dans cette section que chaque lettre est codée par son rang dans l'alphabet diminué de 1 et que le chiffrement s'effectue par <a href="/wiki/Digramme" title="Digramme">blocs de 2 lettres</a>. Ici <i>n</i> = 26 et <i>p</i> = 2.
+</p><p>Et l'on cherche à chiffrer le message suivant&#160;: TEXTEACRYPTER en utilisant une matrice <i>A</i> dont le déterminant est premier avec 26.
+</p><p>Pour construire une telle matrice, il suffit de choisir trois entiers <i>a</i>, <i>b</i>, <i>c</i> au hasard mais tels que <i>a</i> soit premier avec 26, ce qui permet de choisir le dernier terme <i>d</i> tel que <i>ad – bc</i> soit inversible modulo 26<sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span class="cite_crochet">[</span>3<span class="cite_crochet">]</span></a></sup>. Pour la suite on prendra 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle A={\begin{pmatrix}3&amp;5\\6&amp;17\end{pmatrix}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>A</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mn>3</mn>
+                </mtd>
+                <mtd>
+                  <mn>5</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>6</mn>
+                </mtd>
+                <mtd>
+                  <mn>17</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A={\begin{pmatrix}3&amp;5\\6&amp;17\end{pmatrix}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b02c621ce4dc386040a510725c8cff90c731437" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:14.824ex; height:6.176ex;" alt="A={\begin{pmatrix}3&amp;5\\6&amp;17\end{pmatrix}}"/></span></dd></dl>
+<p>dont le déterminant est 21. Comme 5 × 21 = 105 ≡ 1 (mod 26), 5 est un inverse de det(<i>A</i>) modulo 26.
+</p>
+<h3><span class="mw-headline" id="Chiffrement">Chiffrement</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit&amp;section=3" class="mw-editsection-visualeditor" title="Modifier la section : Chiffrement">modifier</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit&amp;section=3" title="Modifier la section : Chiffrement">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>On remplace chaque lettre par son rang à l'aide du tableau suivant&#160;: 
+</p>
+<table class="wikitable">
+<tbody><tr>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td>O</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>13</td>
+<td>14</td>
+<td>15</td>
+<td>16</td>
+<td>17</td>
+<td>18</td>
+<td>19</td>
+<td>20</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>25
+</td></tr></tbody></table>
+<p>Puis on code le message
+</p>
+<dl><dd>TEXTEACHIFFRER→ 19&#160;; 4&#160;; 23&#160;; 19&#160;; 4&#160;; 0&#160;; 2&#160;; 7&#160;; 8&#160;; 5&#160;; 5&#160;; 17&#160;; 4&#160;; 17</dd></dl>
+<p>On regroupe les lettres par paires créant ainsi 7 vecteurs de dimension deux, la dernière paire étant complétée arbitrairement&#160;:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X_{1}=(19;4);X_{2}=(23;19);X_{3}=(4;0);X_{4}=(2;7);X_{5}=(8;5);X_{6}=(5;17);X_{7}=(4;17).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>19</mn>
+        <mo>;</mo>
+        <mn>4</mn>
+        <mo stretchy="false">)</mo>
+        <mo>;</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>23</mn>
+        <mo>;</mo>
+        <mn>19</mn>
+        <mo stretchy="false">)</mo>
+        <mo>;</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>4</mn>
+        <mo>;</mo>
+        <mn>0</mn>
+        <mo stretchy="false">)</mo>
+        <mo>;</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>2</mn>
+        <mo>;</mo>
+        <mn>7</mn>
+        <mo stretchy="false">)</mo>
+        <mo>;</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>5</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>8</mn>
+        <mo>;</mo>
+        <mn>5</mn>
+        <mo stretchy="false">)</mo>
+        <mo>;</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>6</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>5</mn>
+        <mo>;</mo>
+        <mn>17</mn>
+        <mo stretchy="false">)</mo>
+        <mo>;</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>7</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mn>4</mn>
+        <mo>;</mo>
+        <mn>17</mn>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X_{1}=(19;4);X_{2}=(23;19);X_{3}=(4;0);X_{4}=(2;7);X_{5}=(8;5);X_{6}=(5;17);X_{7}=(4;17).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b1166cface197e2303e719afdf770cab229849dd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:91.379ex; height:2.843ex;" alt="{\displaystyle X_{1}=(19;4);X_{2}=(23;19);X_{3}=(4;0);X_{4}=(2;7);X_{5}=(8;5);X_{6}=(5;17);X_{7}=(4;17).}"/></span></dd></dl>
+<p>On multiplie ensuite ces vecteurs par la matrice <i>A</i> en travaillant sur des congruences modulo 26&#160;:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Y_{1}={\begin{pmatrix}3&amp;5\\6&amp;17\end{pmatrix}}{\begin{pmatrix}19\\4\end{pmatrix}}={\begin{pmatrix}25\\0\end{pmatrix}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>Y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mn>3</mn>
+                </mtd>
+                <mtd>
+                  <mn>5</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>6</mn>
+                </mtd>
+                <mtd>
+                  <mn>17</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mn>19</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>4</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mn>25</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Y_{1}={\begin{pmatrix}3&amp;5\\6&amp;17\end{pmatrix}}{\begin{pmatrix}19\\4\end{pmatrix}}={\begin{pmatrix}25\\0\end{pmatrix}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4a1cdb1f07c04093ab7c98b385bd39db1eeb33e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:31.579ex; height:6.176ex;" alt="Y_{1}={\begin{pmatrix}3&amp;5\\6&amp;17\end{pmatrix}}{\begin{pmatrix}19\\4\end{pmatrix}}={\begin{pmatrix}25\\0\end{pmatrix}}"/></span> etc.</dd></dl>
+<p>On obtient alors 7 vecteurs, soit 14 lettres&#160;:
+</p>
+<dl><dd>(25&#160;; 0)&#160;; (8;19)&#160;; (12&#160;; 24)&#160;; (15&#160;; 1)&#160;; (23&#160;; 3)&#160;; (22&#160;; 7)&#160;; (19&#160;; 2)</dd>
+<dd>ZAITMYPBXDWHTB.</dd></dl>
+<h3><span id="D.C3.A9chiffrement"></span><span class="mw-headline" id="Déchiffrement">Déchiffrement</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit&amp;section=4" class="mw-editsection-visualeditor" title="Modifier la section : Déchiffrement">modifier</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit&amp;section=4" title="Modifier la section : Déchiffrement">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Il faut inverser la matrice <i>A</i>. Il suffit de prendre la transposée de sa comatrice, c'est-à-dire 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle ^{\operatorname {t} }\!{\rm {com}}A={\begin{pmatrix}17&amp;-5\\-6&amp;3\end{pmatrix}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">t</mi>
+          </mrow>
+        </msup>
+        <mspace width="negativethinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">c</mi>
+            <mi mathvariant="normal">o</mi>
+            <mi mathvariant="normal">m</mi>
+          </mrow>
+        </mrow>
+        <mi>A</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mn>17</mn>
+                </mtd>
+                <mtd>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>5</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>6</mn>
+                </mtd>
+                <mtd>
+                  <mn>3</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle ^{\operatorname {t} }\!{\rm {com}}A={\begin{pmatrix}17&amp;-5\\-6&amp;3\end{pmatrix}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9036186f4089bd3ea0ddb164ca8adf3a4b710e79" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:21.894ex; height:6.176ex;" alt="^{{\operatorname t}}\!{{\rm {com}}}A={\begin{pmatrix}17&amp;-5\\-6&amp;3\end{pmatrix}}"/></span></dd></dl>
+<p>et la multiplier (modulo 26) par un inverse modulaire du déterminant de <i>A</i> c'est-à-dire par 5 (cf. ci-dessus)&#160;:  
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle B={\begin{pmatrix}7&amp;1\\22&amp;15\end{pmatrix}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>B</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mn>7</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>22</mn>
+                </mtd>
+                <mtd>
+                  <mn>15</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle B={\begin{pmatrix}7&amp;1\\22&amp;15\end{pmatrix}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7fd7c83bc67bdb71417d5f5199568806b6e42c62" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:16.654ex; height:6.176ex;" alt="B={\begin{pmatrix}7&amp;1\\22&amp;15\end{pmatrix}}."/></span></dd></dl>
+<p>Connaissant les couples <i>Y</i>, il suffit de les multiplier (modulo 26) par la matrice <i>B</i> pour retrouver les couples <i>X</i> et réussir à déchiffrer le message.
+</p>
+<h2><span class="mw-headline" id="Cryptanalyse">Cryptanalyse</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit&amp;section=5" class="mw-editsection-visualeditor" title="Modifier la section : Cryptanalyse">modifier</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit&amp;section=5" title="Modifier la section : Cryptanalyse">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Le cassage par force brute nécessiterait de tester toutes les matrices carrées inversibles soit <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (2^{2}-1)(2^{2}-2)(13^{2}-1)(13^{2}-13)=157248}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>2</mn>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>13</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>13</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>13</mn>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mn>157248</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (2^{2}-1)(2^{2}-2)(13^{2}-1)(13^{2}-13)=157248}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/88a45f0e5c4e89c61e76dcfc75f72b98daa3a424" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:45.676ex; height:3.176ex;" alt="(2^{2}-1)(2^{2}-2)(13^{2}-1)(13^{2}-13)=157248"/></span> matrices<sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span class="cite_crochet">[</span>4<span class="cite_crochet">]</span></a></sup> dans les cas de matrices d'ordre 2 modulo 26. Ce nombre augmente considérablement si l'on décide de travailler avec des matrices 3 × 3 ou 4 × 4.
+</p><p>L'autre système consiste à <a href="/wiki/Analyse_fr%C3%A9quentielle#Analyse_fréquentielle_des_digrammes" title="Analyse fréquentielle">travailler sur les fréquences d'apparition de blocs de lettres</a>. 
+</p><p>Dans l'exemple précédent, la paire ZA apparait 2 fois ce qui la classe parmi les paires les plus fréquentes qui sont ES, DE, LE, EN, RE, NT, ON, TE. Si l'on arrive à déterminer le chiffrement de 2 paires de lettres, on peut sous certaines conditions retrouver la matrice de codage <i>A</i>.
+</p><p>En effet, si l'on suppose connu le fait que <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (x_{1};x_{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>;</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x_{1};x_{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1f0ee560e134018cb20f9d9fb9e2588bc6c28e85" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.611ex; height:2.843ex;" alt="(x_{1};x_{2})"/></span> est codé par <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (y_{1};y_{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>;</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (y_{1};y_{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/22f4afd0e33642e87facf1e2cefac3f67323273b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.23ex; height:2.843ex;" alt="(y_{1};y_{2})"/></span> et <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (x_{3};x_{4})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mo>;</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (x_{3};x_{4})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/62665255632f865a7caeceeb23c09ca7b3965083" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.611ex; height:2.843ex;" alt="(x_{3};x_{4})"/></span> est codé par <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (y_{3};y_{4})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mo>;</mo>
+        <msub>
+          <mi>y</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (y_{3};y_{4})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42b25ace4d1d8966153c32b977fbb4e1ee8d4100" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.23ex; height:2.843ex;" alt="(y_{3};y_{4})"/></span> alors on peut écrire l'égalité matricielle suivante&#160;:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{pmatrix}y_{1}&amp;y_{3}\\y_{2}&amp;y_{4}\end{pmatrix}}=A{\begin{pmatrix}x_{1}&amp;x_{3}\\x_{2}&amp;x_{4}\end{pmatrix}}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>3</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>4</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mi>A</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>x</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>x</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>3</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>x</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>x</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>4</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{pmatrix}y_{1}&amp;y_{3}\\y_{2}&amp;y_{4}\end{pmatrix}}=A{\begin{pmatrix}x_{1}&amp;x_{3}\\x_{2}&amp;x_{4}\end{pmatrix}}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7d0b55c33cfbf2429df017e9574a4e13f144852d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:27.634ex; height:6.176ex;" alt="{\begin{pmatrix}y_{1}&amp;y_{3}\\y_{2}&amp;y_{4}\end{pmatrix}}=A{\begin{pmatrix}x_{1}&amp;x_{3}\\x_{2}&amp;x_{4}\end{pmatrix}}."/></span></dd></dl>
+<p>Si la seconde matrice est inversible, c'est-à-dire si <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{1}x_{4}-x_{2}x_{3}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{1}x_{4}-x_{2}x_{3}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f76d636b8c872b19b0fa2fe0ddf367cb70784d9c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:12.376ex; height:2.343ex;" alt="x_{1}x_{4}-x_{2}x_{3}"/></span> est premier avec 26, alors on peut déterminer <i>A</i> par 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle A={\begin{pmatrix}y_{1}&amp;y_{3}\\y_{2}&amp;y_{4}\end{pmatrix}}{\begin{pmatrix}x_{1}&amp;x_{3}\\x_{2}&amp;x_{4}\end{pmatrix}}^{-1}.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>A</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>3</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>4</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow>
+              <mo>(</mo>
+              <mtable rowspacing="4pt" columnspacing="1em">
+                <mtr>
+                  <mtd>
+                    <msub>
+                      <mi>x</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>1</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                  <mtd>
+                    <msub>
+                      <mi>x</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>3</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                </mtr>
+                <mtr>
+                  <mtd>
+                    <msub>
+                      <mi>x</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>2</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                  <mtd>
+                    <msub>
+                      <mi>x</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>4</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                </mtr>
+              </mtable>
+              <mo>)</mo>
+            </mrow>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A={\begin{pmatrix}y_{1}&amp;y_{3}\\y_{2}&amp;y_{4}\end{pmatrix}}{\begin{pmatrix}x_{1}&amp;x_{3}\\x_{2}&amp;x_{4}\end{pmatrix}}^{-1}.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/701f9fe761d078fb6afa51e73b06a26c37cc26ac" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:29.966ex; height:6.509ex;" alt="A={\begin{pmatrix}y_{1}&amp;y_{3}\\y_{2}&amp;y_{4}\end{pmatrix}}{\begin{pmatrix}x_{1}&amp;x_{3}\\x_{2}&amp;x_{4}\end{pmatrix}}^{{-1}}."/></span></dd></dl>
+<p>Si l'on travaille avec des blocs de taille <i>p</i>, il faut connaitre le chiffrement de <i>p</i> blocs pour arriver à déterminer la matrice. Encore faut-il que ces blocs constituent une matrice inversible.
+</p>
+<h2><span class="mw-headline" id="Sources">Sources</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit&amp;section=6" class="mw-editsection-visualeditor" title="Modifier la section : Sources">modifier</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit&amp;section=6" title="Modifier la section : Sources">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Robert Noirfalise, <i><a rel="nofollow" class="external text" href="http://wwwmaths.univ-bpclermont.fr/irem/ressources/lycee/arithmetique/pdf/crypto.pdf">Arithmétique et cryptographie</a></i>, <a href="/wiki/IREM" class="mw-redirect" title="IREM">IREM</a> de <a href="/wiki/Clermont-Ferrand" title="Clermont-Ferrand">Clermont-Ferrand</a>&#160;;</li>
+<li><a rel="nofollow" class="external text" href="http://math.univ-lyon1.fr/~roblot/resources/masterpro_chapitre_1.pdf">Introduction à la cryptographie</a>, <a href="/wiki/Universit%C3%A9_Lyon_1" class="mw-redirect" title="Université Lyon 1">université Lyon 1</a>&#160;;</li>
+<li>Didier Müller, <i><a rel="nofollow" class="external text" href="http://www.apprendre-en-ligne.net/auteur/articles/Hill.pdf">Une application intéressante des matrices&#160;; le chiffre de Hill</a></i></li>
+<li><span class="ouvrage" id="Bayart"><span class="ouvrage" id="Frédéric_Bayart">Frédéric Bayart, <a rel="nofollow" class="external text" href="http://www.bibmath.net/crypto/indexantique.php3">«&#160;<cite style="font-style: normal;">Méthodes anciennes de cryptographie</cite>&#160;»</a>, sur <span class="italique">bibmath.net</span></span></span>&#160;;</li>
+<li><abbr class="abbr indicateur-langue" title="Langue&#32;: anglais">(en)</abbr> Murray Eisenberg, <i><a rel="nofollow" class="external text" href="http://www.apprendre-en-ligne.net/crypto/hill/Hillciph.pdf">Hill Ciphers and Modular Linear Algebra</a></i>.</li></ul>
+<h2><span id="Notes_et_r.C3.A9f.C3.A9rences"></span><span class="mw-headline" id="Notes_et_références">Notes et références</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit&amp;section=7" class="mw-editsection-visualeditor" title="Modifier la section : Notes et références">modifier</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit&amp;section=7" title="Modifier la section : Notes et références">modifier le code</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="references-small decimal" style=""><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink noprint"><a href="#cite_ref-1">↑</a> </span><span class="reference-text"><abbr class="abbr indicateur-langue" title="Langue&#32;: anglais">(en)</abbr> Lester S. Hill, «&#160;Concerning certain linear transformation apparatus of cryptography&#160;», <i><a href="/wiki/American_Mathematical_Monthly" class="mw-redirect" title="American Mathematical Monthly">American Mathematical Monthly</a></i>, vol. 38, 1931, <span class="nowrap"><abbr class="abbr" title="page(s)">p.</abbr>&#160;135-154</span>.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink noprint"><a href="#cite_ref-2">↑</a> </span><span class="reference-text"><abbr class="abbr indicateur-langue" title="Langue&#32;: anglais">(en)</abbr> <a rel="nofollow" class="external text" href="http://www.und.nodak.edu/org/crypto/crypto/graphics.html">Copie du dépôt de brevet</a>.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink noprint"><a href="#cite_ref-3">↑</a> </span><span class="reference-text">Ou plus généralement&#160;: de choisir <i>a</i> et <i>b</i> tels que <a href="/wiki/PGCD" class="mw-redirect" title="PGCD">PGCD</a>(<i>a</i>, <i>b</i>, 26) = 1, puis <i>u</i>, <i>v</i> tels que <a href="/wiki/Th%C3%A9or%C3%A8me_de_Bachet-B%C3%A9zout#Généralisation" title="Théorème de Bachet-Bézout"><i>au – bv</i> ≡ 1 (mod 26)</a>, et de poser <i>d = mu</i>, <i>c = mv</i> pour un entier <i>m</i> premier avec 26.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink noprint"><a href="#cite_ref-4">↑</a> </span><span class="reference-text">Selon 
+<a rel="nofollow" class="external text" href="http://math.univ-lyon1.fr/~roblot/resources/masterpro_chapitre_1.pdf">cet exposé d'introduction à la cryptographie</a>, université Lyon 1.</span>
+</li>
+</ol></div>
+</div>
+<div class="navbox-container" style="clear:both;">
+<table class="navbox collapsible noprint autocollapse" data-autocollapse-group="palette" style="">
+<tbody><tr><th class="navbox-title" colspan="2" style=""><div style="float:left; width:6em; text-align:left"><div class="noprint plainlinksneverexpand nowrap tnavbar" style="background-color:transparent; padding:0; font-size:xx-small; color:#000000;"><a href="/wiki/Mod%C3%A8le:Palette_Cryptologie_historique" title="Modèle:Palette Cryptologie historique"><abbr class="abbr" title="Voir ce modèle.">v</abbr></a>&#160;· <a class="external text" href="https://fr.wikipedia.org/w/index.php?title=Mod%C3%A8le:Palette_Cryptologie_historique&amp;action=edit"><abbr class="abbr" title="Modifier ce modèle. Merci de prévisualiser avant de sauvegarder.">m</abbr></a></div></div><div style="font-size:110%">Cryptologie historique</div></th>
+</tr>  <tr>
+<th class="navbox-group" style="">Chiffres</th>
+<td class="navbox-list" style=""><div class="liste-horizontale">
+<ul><li><a href="/wiki/Chiffre_ADFGVX" title="Chiffre ADFGVX">ADFGVX</a></li>
+<li><a href="/wiki/Chiffre_d%27Alberti" title="Chiffre d&#39;Alberti">Alberti</a></li>
+<li><a href="/w/index.php?title=Chiffre_de_Bazeries&amp;action=edit&amp;redlink=1" class="new" title="Chiffre de Bazeries (page inexistante)">Bazeries</a></li>
+<li><a href="/wiki/Chiffre_de_Beale" title="Chiffre de Beale">Beale</a></li>
+<li><a href="/wiki/Carr%C3%A9_de_Polybe" title="Carré de Polybe">Carré de Polybe</a> (<small><a href="/wiki/Tap_code" title="Tap code">Tap code</a></small>)</li>
+<li><span title="Bon article"><img alt="Bon article" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/11/Bon_article.svg/14px-Bon_article.svg.png" decoding="async" title="Bon article" width="14" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/11/Bon_article.svg/21px-Bon_article.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/11/Bon_article.svg/28px-Bon_article.svg.png 2x" data-file-width="20" data-file-height="20" /></span> <a href="/wiki/Chiffrement_par_d%C3%A9calage" title="Chiffrement par décalage">César</a></li>
+<li><a href="/wiki/Chiffre_de_Delastelle" title="Chiffre de Delastelle">Delastelle</a></li>
+<li><a class="mw-selflink selflink">Hill</a></li>
+<li><a href="/w/index.php?title=Chiffre_de_Marie_Stuart&amp;action=edit&amp;redlink=1" class="new" title="Chiffre de Marie Stuart (page inexistante)">Marie Stuart</a></li>
+<li><a href="/wiki/Chiffre_m%C3%B4nome_bin%C3%B4me" title="Chiffre mônome binôme">Monôme-binôme</a></li>
+<li><a href="/wiki/Chiffre_des_francs-ma%C3%A7ons" title="Chiffre des francs-maçons">Pigpen</a></li>
+<li><a href="/wiki/Chiffre_de_Playfair" title="Chiffre de Playfair">Playfair</a></li>
+<li><a href="/wiki/Scytale" title="Scytale">Scytale</a></li>
+<li><a href="/wiki/Chiffrement_par_substitution" title="Chiffrement par substitution">Substitution</a></li>
+<li><a href="/wiki/Chiffrement_par_transposition" title="Chiffrement par transposition">Transposition</a></li>
+<li><a href="/wiki/Chiffre_de_Trith%C3%A9mius" title="Chiffre de Trithémius">Trithémius</a></li>
+<li><a href="/wiki/Chiffre_VIC" title="Chiffre VIC">VIC</a></li>
+<li><a href="/wiki/Chiffre_de_Vigen%C3%A8re" title="Chiffre de Vigenère">Vigenère</a></li></ul>
+</div></td>
+</tr> <tr>
+<th class="navbox-group" style="">Cryptanalyse</th>
+<td class="navbox-list navbox-even" style=""><div class="liste-horizontale">
+<ul><li><a href="/wiki/Analyse_fr%C3%A9quentielle" title="Analyse fréquentielle">Analyse fréquentielle</a></li>
+<li><a href="/wiki/Indice_de_co%C3%AFncidence" title="Indice de coïncidence">Indice de coïncidence</a></li>
+<li><a href="/wiki/Cryptanalyse_du_chiffre_de_Vigen%C3%A8re" title="Cryptanalyse du chiffre de Vigenère">Cryptanalyse du chiffre de Vigenère</a></li></ul>
+</div></td>
+</tr>                             <tr>
+<td class="navbox-banner" style="" colspan="2"><a href="/wiki/Histoire_de_la_cryptologie" title="Histoire de la cryptologie">Histoire</a></td></tr></tbody></table>
+</div>
+<ul id="bandeau-portail" class="bandeau-portail"><li><span class="bandeau-portail-element"><span class="bandeau-portail-icone"><a href="/wiki/Portail:Cryptologie" title="Portail de la cryptologie"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Stock_keyring.svg/48px-Stock_keyring.svg.png" decoding="async" width="48" height="24" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Stock_keyring.svg/72px-Stock_keyring.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Stock_keyring.svg/96px-Stock_keyring.svg.png 2x" data-file-width="60" data-file-height="30" /></a></span> <span class="bandeau-portail-texte"><a href="/wiki/Portail:Cryptologie" title="Portail:Cryptologie">Portail de la cryptologie</a></span> </span></li>                    </ul>
+<!-- 
+NewPP limit report
+Parsed by mw1311
+Cached time: 20191227092937
+Cache expiry: 2592000
+Dynamic content: false
+Complications: []
+CPU time usage: 0.232 seconds
+Real time usage: 0.337 seconds
+Preprocessor visited node count: 789/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 19429/2097152 bytes
+Template argument size: 4108/2097152 bytes
+Highest expansion depth: 15/40
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3213/5000000 bytes
+Number of Wikibase entities loaded: 1/400
+Lua time usage: 0.066/10.000 seconds
+Lua memory usage: 2.65 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  216.791      1 -total
+ 28.04%   60.778      1 Modèle:Lien_web
+ 23.97%   51.955      1 Modèle:Portail
+ 18.07%   39.172      1 Modèle:Palette
+ 16.23%   35.190      3 Modèle:En
+ 15.01%   32.550      2 Modèle:Indication_de_langue
+ 14.04%   30.438      1 Modèle:Palette_Cryptologie_historique
+ 11.59%   25.136      1 Modèle:Méta_palette_de_navigation
+  8.84%   19.163      1 Modèle:Catégorisation_badges
+  8.51%   18.443      1 Modèle:Références
+-->
+
+<!-- Saved in parser cache with key frwiki:pcache:idhash:3784528-0!canonical!math=5 and timestamp 20191227092937 and revision id 164487278
+ -->
+</div><noscript><img src="//fr.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		
+		<div class="printfooter">Ce document provient de «&#160;<a dir="ltr" href="https://fr.wikipedia.org/w/index.php?title=Chiffre_de_Hill&amp;oldid=164487278">https://fr.wikipedia.org/w/index.php?title=Chiffre_de_Hill&amp;oldid=164487278</a>&#160;».</div>
+		
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Cat%C3%A9gorie:Accueil" title="Catégorie:Accueil">Catégorie</a> : <ul><li><a href="/wiki/Cat%C3%A9gorie:Chiffrement_par_substitution" title="Catégorie:Chiffrement par substitution">Chiffrement par substitution</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Catégories cachées : <ul><li><a href="/wiki/Cat%C3%A9gorie:Portail:Cryptologie/Articles_li%C3%A9s" title="Catégorie:Portail:Cryptologie/Articles liés">Portail:Cryptologie/Articles liés</a></li><li><a href="/wiki/Cat%C3%A9gorie:Portail:Informatique/Articles_li%C3%A9s" title="Catégorie:Portail:Informatique/Articles liés">Portail:Informatique/Articles liés</a></li></ul></div></div>
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+
+		<div id="mw-navigation">
+			<h2>Menu de navigation</h2>
+			<div id="mw-head">
+						<div id="p-personal" role="navigation" aria-labelledby="p-personal-label">
+			<h3 id="p-personal-label">Outils personnels</h3>
+			<ul>
+				<li id="pt-anonuserpage">Non connecté</li><li id="pt-anontalk"><a href="/wiki/Sp%C3%A9cial:Mes_discussions" title="La page de discussion pour les contributions depuis cette adresse IP [n]" accesskey="n">Discussion</a></li><li id="pt-anoncontribs"><a href="/wiki/Sp%C3%A9cial:Mes_contributions" title="Une liste des modifications effectuées depuis cette adresse IP [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Sp%C3%A9cial:Cr%C3%A9er_un_compte&amp;returnto=Chiffre+de+Hill" title="Nous vous encourageons à créer un compte utilisateur et vous connecter ; ce n’est cependant pas obligatoire.">Créer un compte</a></li><li id="pt-login"><a href="/w/index.php?title=Sp%C3%A9cial:Connexion&amp;returnto=Chiffre+de+Hill" title="Nous vous encourageons à vous connecter ; ce n’est cependant pas obligatoire. [o]" accesskey="o">Se connecter</a></li>			</ul>
+		</div>
+						<div id="left-navigation">
+					
+<div id="p-namespaces" role="navigation" class="vectorTabs " aria-labelledby="p-namespaces-label">
+	<h3 id="p-namespaces-label">Espaces de noms</h3>
+	<ul >
+		<li id="ca-nstab-main" class="selected"><a href="/wiki/Chiffre_de_Hill" title="Voir le contenu de la page [c]" accesskey="c">Article</a></li><li id="ca-talk"><a href="/wiki/Discussion:Chiffre_de_Hill" rel="discussion" title="Discussion au sujet de cette page de contenu [t]" accesskey="t">Discussion</a></li>
+	</ul>
+</div>
+		<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+			<h3 id="p-variants-label">
+				<span>Variantes</span>
+			</h3>
+			<ul class="menu">
+							</ul>
+		</div>
+						</div>
+				<div id="right-navigation">
+					
+<div id="p-views" role="navigation" class="vectorTabs " aria-labelledby="p-views-label">
+	<h3 id="p-views-label">Affichages</h3>
+	<ul >
+		<li id="ca-view" class="collapsible selected"><a href="/wiki/Chiffre_de_Hill">Lire</a></li><li id="ca-ve-edit" class="collapsible"><a href="/w/index.php?title=Chiffre_de_Hill&amp;veaction=edit" title="Modifier cette page [v]" accesskey="v">Modifier</a></li><li id="ca-edit" class="collapsible"><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=edit" title="Vous pouvez modifier cette page ! [e]" accesskey="e">Modifier le code</a></li><li id="ca-history" class="collapsible"><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=history" title="Historique des versions de cette page [h]" accesskey="h">Voir l’historique</a></li>
+	</ul>
+</div>
+		<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+			<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+			<h3 id="p-cactions-label"><span>Plus</span></h3>
+			<ul class="menu">
+							</ul>
+		</div>
+		
+<div id="p-search" role="search">
+	<h3 >
+		<label for="searchInput">Rechercher</label>
+	</h3>
+	<form action="/w/index.php" id="searchform">
+		<div id="simpleSearch">
+			<input type="search" name="search" placeholder="Rechercher dans Wikipédia" title="Rechercher dans Wikipédia [f]" accesskey="f" id="searchInput"/>
+			<input type="hidden" value="Spécial:Recherche" name="title"/>
+			
+			<input type="submit" name="fulltext" value="Rechercher" title="Rechercher les pages comportant ce texte." id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>
+			<input type="submit" name="go" value="Continuer" title="Accédez à une page du même nom si elle existe" id="searchButton" class="searchButton"/>
+		</div>
+	</form>
+</div>
+				</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Wikip%C3%A9dia:Accueil_principal" title="Visiter la page d’accueil"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+			<div class="body">
+								<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Wikip%C3%A9dia:Accueil_principal" title="Accueil général [z]" accesskey="z">Accueil</a></li><li id="n-thema"><a href="/wiki/Portail:Accueil">Portails thématiques</a></li><li id="n-randompage"><a href="/wiki/Sp%C3%A9cial:Page_au_hasard" title="Affiche un article au hasard [x]" accesskey="x">Article au hasard</a></li><li id="n-contact"><a href="/wiki/Wikip%C3%A9dia:Contact">Contact</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Contribuer" aria-labelledby="p-Contribuer-label">
+			<h3 id="p-Contribuer-label">Contribuer</h3>
+			<div class="body">
+								<ul>
+					<li id="n-aboutwp"><a href="/wiki/Aide:D%C3%A9buter">Débuter sur Wikipédia</a></li><li id="n-help"><a href="/wiki/Aide:Accueil" title="Accès à l’aide">Aide</a></li><li id="n-portal"><a href="/wiki/Wikip%C3%A9dia:Accueil_de_la_communaut%C3%A9" title="À propos du projet, ce que vous pouvez faire, où trouver les informations">Communauté</a></li><li id="n-recentchanges"><a href="/wiki/Sp%C3%A9cial:Modifications_r%C3%A9centes" title="Liste des modifications récentes sur le wiki [r]" accesskey="r">Modifications récentes</a></li><li id="n-sitesupport"><a href="//donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_fr.wikipedia.org&amp;uselang=fr" title="Soutenez-nous">Faire un don</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Outils</h3>
+			<div class="body">
+								<ul>
+					<li id="t-whatlinkshere"><a href="/wiki/Sp%C3%A9cial:Pages_li%C3%A9es/Chiffre_de_Hill" title="Liste des pages liées qui pointent sur celle-ci [j]" accesskey="j">Pages liées</a></li><li id="t-recentchangeslinked"><a href="/wiki/Sp%C3%A9cial:Suivi_des_liens/Chiffre_de_Hill" rel="nofollow" title="Liste des modifications récentes des pages appelées par celle-ci [k]" accesskey="k">Suivi des pages liées</a></li><li id="t-upload"><a href="/wiki/Aide:Importer_un_fichier" title="Importer des fichiers [u]" accesskey="u">Téléverser un fichier</a></li><li id="t-specialpages"><a href="/wiki/Sp%C3%A9cial:Pages_sp%C3%A9ciales" title="Liste de toutes les pages spéciales [q]" accesskey="q">Pages spéciales</a></li><li id="t-permalink"><a href="/w/index.php?title=Chiffre_de_Hill&amp;oldid=164487278" title="Adresse permanente de cette version de la page">Lien permanent</a></li><li id="t-info"><a href="/w/index.php?title=Chiffre_de_Hill&amp;action=info" title="Plus d’informations sur cette page">Informations sur la page</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2454939" title="Lien vers l’élément de référentiel des données connectées [g]" accesskey="g">Élément Wikidata</a></li><li id="t-cite"><a href="/w/index.php?title=Sp%C3%A9cial:Citer&amp;page=Chiffre_de_Hill&amp;id=164487278" title="Informations sur la manière de citer cette page">Citer cette page</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-coll-print_export" aria-labelledby="p-coll-print_export-label">
+			<h3 id="p-coll-print_export-label">Imprimer / exporter</h3>
+			<div class="body">
+								<ul>
+					<li id="coll-create_a_book"><a href="/w/index.php?title=Sp%C3%A9cial:Livre&amp;bookcmd=book_creator&amp;referer=Chiffre+de+Hill">Créer un livre</a></li><li id="coll-download-as-rl"><a href="/w/index.php?title=Sp%C3%A9cial:ElectronPdf&amp;page=Chiffre+de+Hill&amp;action=show-download-screen">Télécharger comme PDF</a></li><li id="t-print"><a href="/w/index.php?title=Chiffre_de_Hill&amp;printable=yes" title="Version imprimable de cette page [p]" accesskey="p">Version imprimable</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-lang" aria-labelledby="p-lang-label">
+			<h3 id="p-lang-label">Dans d’autres langues</h3>
+			<div class="body">
+								<ul>
+					<li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%B4%D9%8A%D9%81%D8%B1%D8%A9_%D9%87%D9%8A%D9%84" title="شيفرة هيل — arabe" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Xifratge_de_Hill" title="Xifratge de Hill — catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Hillova_%C5%A1ifra" title="Hillova šifra — tchèque" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Hill-Chiffre" title="Hill-Chiffre — allemand" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-en"><a href="https://en.wikipedia.org/wiki/Hill_cipher" title="Hill cipher — anglais" lang="en" hreflang="en" class="interlanguage-link-target">English</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Cifrado_Hill" title="Cifrado Hill — espagnol" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D8%B1%D9%85%D8%B2%D9%86%DA%AF%D8%A7%D8%B1%DB%8C_%D9%87%DB%8C%D9%84" title="رمزنگاری هیل — persan" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%A6%D7%95%D7%A4%D7%9F_%D7%94%D7%99%D7%9C" title="צופן היל — hébreu" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Cifrario_di_Hill" title="Cifrario di Hill — italien" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-mwl"><a href="https://mwl.wikipedia.org/wiki/Cifra_de_Hill" title="Cifra de Hill — mirandais" lang="mwl" hreflang="mwl" class="interlanguage-link-target">Mirandés</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Szyfr_Hilla" title="Szyfr Hilla — polonais" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-pt"><a href="https://pt.wikipedia.org/wiki/Cifra_de_Hill" title="Cifra de Hill — portugais" lang="pt" hreflang="pt" class="interlanguage-link-target">Português</a></li><li class="interlanguage-link interwiki-ro"><a href="https://ro.wikipedia.org/wiki/Cifrul_Hill" title="Cifrul Hill — roumain" lang="ro" hreflang="ro" class="interlanguage-link-target">Română</a></li><li class="interlanguage-link interwiki-ru badge-Q17559452 badge-recommendedarticle" title="article recommandé"><a href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B8%D1%84%D1%80_%D0%A5%D0%B8%D0%BB%D0%BB%D0%B0" title="Шифр Хилла — russe" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%A8%D0%B8%D1%84%D1%80_%D0%93%D1%96%D0%BB%D0%BB%D0%B0" title="Шифр Гілла — ukrainien" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-vi"><a href="https://vi.wikipedia.org/wiki/M%E1%BA%ADt_m%C3%A3_Hill" title="Mật mã Hill — vietnamien" lang="vi" hreflang="vi" class="interlanguage-link-target">Tiếng Việt</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81" title="希尔密码 — chinois" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li>				</ul>
+				<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2454939#sitelinks-wikipedia" title="Modifier les liens interlangues" class="wbc-editpage">Modifier les liens</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+				<div id="footer" role="contentinfo">
+						<ul id="footer-info">
+								<li id="footer-info-lastmod"> La dernière modification de cette page a été faite le 13 novembre 2019 à 23:58.</li>
+								<li id="footer-info-copyright"><span style="white-space: normal"><a class="internal" href="/wiki/Wikip%C3%A9dia:Citation_et_r%C3%A9utilisation_du_contenu_de_Wikip%C3%A9dia" title="Droit d'auteur">Droit d'auteur</a> : les textes sont disponibles sous <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/deed.fr" title="Licence Creative Commons Attribution - partage dans les mêmes conditions 3.0 non transposé">licence Creative Commons attribution, partage dans les mêmes conditions</a> ; d’autres conditions peuvent s’appliquer. Voyez les <a href="https://wikimediafoundation.org/wiki/Conditions_d%27utilisation" title="Conditions d’utilisation de la Wikimedia Foundation">conditions d’utilisation</a> pour plus de détails, ainsi que les <a class="internal" href="/wiki/Wikip%C3%A9dia:Cr%C3%A9dits_graphiques" title="Droit d'auteur de certaines icônes">crédits graphiques</a>. En cas de réutilisation des textes de cette page, voyez <a class="internal" href="/wiki/Sp%C3%A9cial:Citer/Chiffre_de_Hill" title="Citer ou réutiliser cette page">comment citer les auteurs et mentionner la licence</a>.<br />
+Wikipedia® est une marque déposée de la <a href="https://wikimediafoundation.org/" title="Wikimedia Foundation">Wikimedia Foundation, Inc.</a>, organisation de bienfaisance régie par le paragraphe <a class="internal" href="/wiki/501c" title="501c">501(c)(3)</a> du code fiscal des États-Unis.</span><br /></li>
+							</ul>
+						<ul id="footer-places">
+								<li id="footer-places-privacy"><a href="https://meta.wikimedia.org/wiki/Privacy_policy/fr" class="extiw" title="m:Privacy policy/fr">Politique de confidentialité</a></li>
+								<li id="footer-places-about"><a href="/wiki/Wikip%C3%A9dia:%C3%80_propos_de_Wikip%C3%A9dia" title="Wikipédia:À propos de Wikipédia">À propos de Wikipédia</a></li>
+								<li id="footer-places-disclaimer"><a href="/wiki/Wikip%C3%A9dia:Avertissements_g%C3%A9n%C3%A9raux" title="Wikipédia:Avertissements généraux">Avertissements</a></li>
+								<li id="footer-places-contact"><a href="//fr.wikipedia.org/wiki/Wikipédia:Contact">Contact</a></li>
+								<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Développeurs</a></li>
+								<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/v2/#/fr.wikipedia.org">Statistiques</a></li>
+								<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Déclaration sur les témoins (cookies)</a></li>
+								<li id="footer-places-mobileview"><a href="//fr.m.wikipedia.org/w/index.php?title=Chiffre_de_Hill&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Version mobile</a></li>
+							</ul>
+										<ul id="footer-icons" class="noprint">
+										<li id="footer-copyrightico">
+						<a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>					</li>
+										<li id="footer-poweredbyico">
+						<a href="https://www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>					</li>
+									</ul>
+						<div style="clear: both;"></div>
+		</div>
+		
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.232","walltime":"0.337","ppvisitednodes":{"value":789,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":19429,"limit":2097152},"templateargumentsize":{"value":4108,"limit":2097152},"expansiondepth":{"value":15,"limit":40},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":3213,"limit":5000000},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00%  216.791      1 -total"," 28.04%   60.778      1 Modèle:Lien_web"," 23.97%   51.955      1 Modèle:Portail"," 18.07%   39.172      1 Modèle:Palette"," 16.23%   35.190      3 Modèle:En"," 15.01%   32.550      2 Modèle:Indication_de_langue"," 14.04%   30.438      1 Modèle:Palette_Cryptologie_historique"," 11.59%   25.136      1 Modèle:Méta_palette_de_navigation","  8.84%   19.163      1 Modèle:Catégorisation_badges","  8.51%   18.443      1 Modèle:Références"]},"scribunto":{"limitreport-timeusage":{"value":"0.066","limit":"10.000"},"limitreport-memusage":{"value":2777477,"limit":52428800}},"cachereport":{"origin":"mw1311","timestamp":"20191227092937","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Chiffre de Hill","url":"https:\/\/fr.wikipedia.org\/wiki\/Chiffre_de_Hill","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2454939","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2454939","author":{"@type":"Organization","name":"Contributeurs aux projets de Wikim\u00e9dia"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2009-04-17T14:23:12Z","dateModified":"2019-11-13T22:58:02Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":123,"wgHostname":"mw1322"});});</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>The backdoor in Dual_EC_DRBG</TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.5  (Linux)">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGED" CONTENT="20140410;12214500">
+	<META NAME="plugin-version" CONTENT="vim7.3_v6">
+	<META NAME="settings" CONTENT="use_css">
+	<META NAME="syntax" CONTENT="python">
+	<STYLE TYPE="text/css">
+	<!--
+		PRE { background: #ffffff; color: #000000; font-family: monospace }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="fr-FR" DIR="LTR">
+<P ALIGN=CENTER><FONT SIZE=5 STYLE="font-size: 20pt"><B>Cryptographie
+- TD6&nbsp;: 
+<SCRIPT SRC="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></SCRIPT>
+La porte dérobée dans Dual_EC_DRBG <META HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=EmulateIE7"></B></FONT></P>
+<P ALIGN=CENTER STYLE="font-weight: normal"><FONT COLOR="#000000"><FONT SIZE=2 STYLE="font-size: 11pt"><I>(Dual
+Elliptic Curve Deterministic Random Bit Generator)</I></FONT></FONT></P>
+<P STYLE="font-weight: normal">Les révélations d'Edward Snowden sur
+les activités de la NSA mentionnaient entre autres que cet organisme
+s'est efforcé d'introduire des vulnérabilités dans des systèmes
+cryptographiques commerciaux largement utilisés. En particulier, le
+10 septembre 2013, le <I>New York Times</I> écrivait que d'après
+les documents de Snowden, l'un des générateurs pseudo-aléatoires
+proposés dans un standard NIST de 2006 (NIST SP 800-90A) avait été
+conçu par la NSA et contenait une porte dérobée (<I>backdoor</I>).
+Le 20 décembre 2013, on apprenait que <I>RSA Security </I>avait reçu
+10 millions de dollars de la NSA pour proposer ce générateur par
+défaut dans ses produits.</P>
+<P><SPAN STYLE="font-weight: normal">L'hiistoire est racontée dans
+<A HREF="https://en.wikipedia.org/wiki/Dual_EC_DRBG#cite_note-blog.0xbadc0de.be-31">l'article
+de Wikipédia</A>.</SPAN></P>
+<P><BR><BR>
+</P>
+<P STYLE="font-weight: normal">Le générateur Dual_EC_DRBG utilise
+la courbe elliptique P-256 du NIST. Ses paramètres sont les
+suivants&nbsp;: son équation est</P>
+<P STYLE="font-weight: normal">$$ y^2 = x^3+ax+b \mod p$$</P>
+<P STYLE="font-weight: normal">$$p = p_{256} =
+2^{256}-2^{224}+2^{192}+2^{96}-1$$</P>
+<P STYLE="font-weight: normal">$$a =
+115792089210356248762697446949407573530086143415290314195533631308867097853948
+= -3 \mod p$$</P>
+<P STYLE="font-weight: normal">$$b =
+41058363725152142129326129780047268409114441015993725554835256314039467401291$$</P>
+<P STYLE="font-weight: normal">Elle est d'ordre premier</P>
+<P STYLE="font-weight: normal">$$q
+=115792089210356248762697446949407573529996955224135760342422259061068512044369$$</P>
+<P STYLE="font-weight: normal">On prend comme générateur le point
+\(P=(x_P,y_P)\)</P>
+<P STYLE="font-weight: normal">$$x_P =
+48439561293906451759052585252797914202762949526041747995844080717082404635286$$</P>
+<P STYLE="font-weight: normal">$$y_P =
+36134250956749795798585127919587881956611106672985015071877198253568414405109$$</P>
+<P STYLE="font-weight: normal">et l'algorithme utilise un mystérieux
+point \(Q\) d'origine non précisée</P>
+<P STYLE="font-weight: normal">$$x_Q =
+91120319633256209954638481795610364441930342474826146651283703640232629993874$$</P>
+<P STYLE="font-weight: normal">$$y_Q =
+80764272623998874743522585409326200078679332703816718187804498579075161456710$$</P>
+<P STYLE="font-weight: normal">La graine (<I>seed</I>) du générateur
+aléatoire est un entier \(s_0\) choisi aléatoirement entre 1 et
+\(q\).</P>
+<P STYLE="font-weight: normal">On construit une suite d'états
+internes \(s_i\), et à chaque itération on produit une chaîne
+\(r_i\) de 240 bits pseudo-aléatoires par la récurrence suivante&nbsp;:</P>
+<P STYLE="font-weight: normal">$$ s_i = x(s_{i-1}P)$$</P>
+<P STYLE="font-weight: normal">$$ r_i = {\rm lsb}_{240}(x(s_iQ)) $$</P>
+<P STYLE="font-weight: normal">où \({\rm lsb}_{240}\) prend les 240
+bits de poids faible.</P>
+<P STYLE="font-weight: normal">Il y a de nombreuses raisons de
+s'interroger sur le choix de ce générateur. Il est lent et possède
+un léger biais, ce qui est déjà inquiétant en soi.</P>
+<P STYLE="font-weight: normal">Mais il y a bien pire. On sait que la
+courbe est d'ordre \(q\) premier. Donc, il existe un entier \(d\) tel
+que \(Q=dP\). Il n'est pas interdit de supposer que la NSA connaisse
+\(d\). Elle peut alors facilement calculer son inverse 
+</P>
+<P STYLE="font-weight: normal">$$e=d^{-1}\mod q$$</P>
+<P STYLE="font-weight: normal">Connaissant \(e\), on peut prédire
+l'état interne \(s_{i+1}\) du générateur (et donc les valeurs
+suivantes) à partir de deux sorties consécutives \(r_i\) et
+\(r_{i+1}\).</P>
+<P STYLE="font-weight: normal">Pour en faire la preuve, on peut
+remplacer \(Q\) par \(Q_2=dP\) pour diverses valeurs de \(d\)
+choisies aléatoirement, et vérifier expérimentalement que la
+connaissance de \(d\) permet de prédire \(r_{i+2}\) à partir de
+\(r_i\) et \(r_{i+1}\).</P>
+<P STYLE="font-weight: normal">En effet, \(r_i\) est la coordonnée
+\(x\) du point \(s_iQ_2 = s_idP\), amputée de ses 16 bits de poids
+fort. On peut donc essayer de le compléter avec les \(2^{16}=65536\)
+valeurs possibles de ces bits, et tester pour chaque choix si la
+valeur \(x\) obtenue est l'abscisse d'un point de la courbe. Pour
+cela, il suffit de vérifier si \(x^3+ax+b\) est un carré dans
+\({\mathbb F}_p\), ce qui se produira environ une fois sur deux. On
+obtiendra ainsi une liste \(S\) d'environ \(2^{15}=32768\) points de
+la courbe.</P>
+<P STYLE="font-weight: normal">Pour chacun de ces points
+\(M=(x_M,y_M)\), on calcule \(x(eM)\) et on compare ses 240 bits de
+poids faible à \(r_{i+1}\). 
+</P>
+<P STYLE="font-weight: normal">Dans toutes les expériences, un seul
+point \(M\) redonne \(r_{i+1}\), et on retrouve ainsi l'état interne
+\(s_i=x_M\).</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><SPAN STYLE="font-weight: normal">On trouvera <A HREF="http://blog.0xbadc0de.be/archives/155">ici</A>
+une démonstration en C (assez compliquée à mettre en place).</SPAN></P>
+<P><SPAN STYLE="font-weight: normal">On peut facilement programmer ce
+test en pur Python, en utilisant simplement le fichier <A HREF="ent.py">ent.py
+</A> de  William Stein&nbsp;. Voilà une manière possible de coder
+le générateur. Pour tester la méthode, on remplace le point Q
+choisi par la NSA par un multiple de P connu (mais choisi
+aléatoirement à chaque test)&nbsp;:</SPAN></P>
+<P><BR><BR>
+</P>
+<PRE><FONT COLOR="#0000ff"><B># Dual_EC_DRBG</B></FONT>
+<B><FONT COLOR="#a020f0">import</FONT> random</B>
+<B><FONT COLOR="#a020f0">from</FONT> ent <FONT COLOR="#a020f0">import</FONT> *</B>
+
+
+<B><FONT COLOR="#a52a2a">class</FONT> <FONT COLOR="#008b8b">Dual_EC</FONT>(<FONT COLOR="#008b8b">object</FONT>):</B>
+
+    <FONT COLOR="#a52a2a"><B>def</B></FONT> <FONT COLOR="#008b8b"><B>__init__</B></FONT><B>(self):</B>
+        <FONT COLOR="#0000ff"><B># Prime p_256</B></FONT>
+        <B>self.p = p = </B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>**</B><FONT COLOR="#ff00ff"><B>256</B></FONT> <B>- </B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>**</B><FONT COLOR="#ff00ff"><B>224</B></FONT> <B>+ </B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>**</B><FONT COLOR="#ff00ff"><B>192</B></FONT> <B>+ </B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>**</B><FONT COLOR="#ff00ff"><B>96</B></FONT> <B>- </B><FONT COLOR="#ff00ff"><B>1</B></FONT>
+        <FONT COLOR="#0000ff"><B># E = curve y**2 = x**3+ a*x + b mod p</B></FONT>
+        <B>self.a = a = </B><FONT COLOR="#ff00ff"><B>115792089210356248762697446949407573530086143415290314195533631308867097853948</B></FONT>
+        <B>self.b = b = </B><FONT COLOR="#ff00ff"><B>41058363725152142129326129780047268409114441015993725554835256314039467401291</B></FONT>
+        <FONT COLOR="#0000ff"><B># Order of the curve</B></FONT>
+        <B>q = </B><FONT COLOR="#ff00ff"><B>115792089210356248762697446949407573529996955224135760342422259061068512044369</B></FONT>
+        <FONT COLOR="#0000ff"><B># Generator</B></FONT>
+        <B>xP = </B><FONT COLOR="#ff00ff"><B>48439561293906451759052585252797914202762949526041747995844080717082404635286</B></FONT>
+        <B>yP = </B><FONT COLOR="#ff00ff"><B>36134250956749795798585127919587881956611106672985015071877198253568414405109</B></FONT>
+        <FONT COLOR="#0000ff"><B># Mysterious second point</B></FONT>
+        <B>xQ = </B><FONT COLOR="#ff00ff"><B>91120319633256209954638481795610364441930342474826146651283703640232629993874</B></FONT>
+        <B>yQ = </B><FONT COLOR="#ff00ff"><B>80764272623998874743522585409326200078679332703816718187804498579075161456710</B></FONT>
+
+        <B>self.P = P = (xP, yP)</B>
+        <B>self.Q = Q = (xQ, yQ)</B>
+        <B>self.E = E =  (a,b,p)</B>
+        <B>self.N = </B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>**</B><FONT COLOR="#ff00ff"><B>240</B></FONT><B>-</B><FONT COLOR="#ff00ff"><B>1</B></FONT>
+        <B>self.q = q</B>
+
+        <B>s0 = random.randint(</B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>,q-</B><FONT COLOR="#ff00ff"><B>1</B></FONT><B>)</B>
+        <B>self.state = ellcurve_mul(E,s0, P)[</B><FONT COLOR="#ff00ff"><B>0</B></FONT><B>]</B>
+        <B>self.N = </B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>**</B><FONT COLOR="#ff00ff"><B>240</B></FONT><B>-</B><FONT COLOR="#ff00ff"><B>1</B></FONT>
+
+    <FONT COLOR="#a52a2a"><B>def</B></FONT> <FONT COLOR="#008b8b"><B>__call__</B></FONT><B>(self):</B>
+        <FONT COLOR="#a52a2a"><B>return</B></FONT> <B>self</B>
+
+    <FONT COLOR="#a52a2a"><B>def</B></FONT> <FONT COLOR="#008b8b"><B>next</B></FONT><B>(self):</B>
+        <B>M = ellcurve_mul(self.E,self.state, self.Q)</B>
+        <B>self.state = ellcurve_mul(self.E,self.state,self.P)[</B><FONT COLOR="#ff00ff"><B>0</B></FONT><B>]</B>
+        <FONT COLOR="#a52a2a"><B>return</B></FONT> <B>M[</B><FONT COLOR="#ff00ff"><B>0</B></FONT><B>] &amp; self.N</B>
+
+
+<B><FONT COLOR="#a52a2a">class</FONT> <FONT COLOR="#008b8b">Backdoored</FONT>(Dual_EC):</B>
+    <FONT COLOR="#a52a2a"><B>def</B></FONT> <FONT COLOR="#008b8b"><B>__init__</B></FONT><B>(self):</B>
+        <B>Dual_EC.__init__(self)</B>
+        <B>self.d = random.randint(</B><FONT COLOR="#ff00ff"><B>2</B></FONT><B>,self.q-</B><FONT COLOR="#ff00ff"><B>1</B></FONT><B>)</B>
+        <B>self.e = inversemod(self.d,self.q)</B>
+        <B>self.Q = ellcurve_mul(self.E,self.d,self.P)</B>
+
+
+
+</PRE><P STYLE="margin-top: 0.42cm; page-break-after: avoid">
+<FONT FACE="Albany, sans-serif"><FONT SIZE=4>Exercice </FONT></FONT>
+</P>
+<P>Programmer le test expliqué ci-dessus. Pour mettre au point le
+programme, on vérifiera simplement que l'état interne s[2] (qu'on
+connait) se trouve bien dans la liste des candidats. Une fois que ce
+point sera acquis, on programmera le test complet (rechercher parmi
+les candidats ceux qui redonnent r2). Cette version prend plusieurs
+dizaines de minutes, peut-être jusqu'à une heure, selon la machine.
+</P>
+<PRE>
+
+<FONT FACE="Liberation Serif, serif"><FONT SIZE=3>Le résultat pourrait ressembler à ça :</FONT></FONT>
+
+<B>Two consecutive outputs of the backdoored generator:</B>
+<B>r1 =  1277941323679186258934025142033839006882569538354483136071270590034316138</B>
+<B>r2 =  899874866902815707828419803028016218990090320870136781131892802870676470</B>
+
+<B>Retrieving candidate points on curve from r1</B>
+<B>Found 32631 points</B>
+<B>Computing possible values of internal state s[2]</B>
+<B>Finished computing possible values of s[2]</B>
+<B>Looking for those yielding r2</B>
+<B>Found possible state s[2]:</B>
+<B>114605066044855839627566149663784075654998897893152893540757536994975088891658</B>
+<B>Predicted value:  1035016502411903328328870005589593117156858208215138600287531703575061563</B>
+<B>Real value:       1035016502411903328328870005589593117156858208215138600287531703575061563</B>
+<B>Correct guess? True</B></PRE><P>
+<BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

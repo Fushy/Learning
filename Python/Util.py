@@ -1,19 +1,35 @@
-"""String"""
+import inspect
+from datetime import timedelta, datetime
 from struct import pack, unpack
+from typing import Iterable, Sized, Callable
+
+import nbmerge
+import pandas as pd
+import pytz
+
+""" Lists """
+
+
+def rotate(lst, n=1):
+    return lst[-n:] + lst[:-n]
 
 
 def str_to_ord(text: str):
     return [ord(character) for character in text]
 
 
-"""Logical Operators"""
+def contain_all(base: Iterable and Sized, elements: set):
+    return all((element in base for element in elements))
+
+
+""" Logical Operators """
 
 
 def xor(a, b):
     return (a and not b) or (not a and b)
 
 
-"""Bitwise Operators"""
+""" Bitwise Operators """
 
 
 def get_bit(value, index):
@@ -66,7 +82,7 @@ def two_complement_representation_3(x: int):
     return unsigned_byte(x).value
 
 
-"""Float"""
+""" Float """
 
 
 def float_to_bin(x):
@@ -79,15 +95,118 @@ def bin_to_float(bits):
     return unpack(">d", bytes(int(bits[i:i + 8], 2) for i in range(0, len(bits), 8)))[0]
 
 
-"""Files"""
+""" Files """
 
 
-def merge_files(filenames: list[str], dest: str = "main.py"):
+def merge_files(filenames: list[str], dest: str = "main.py", end="\n"):
     with open(dest, 'w') as outfile:
         for names in filenames:
             with open(names) as infile:
-                outfile.write(infile.read())
-            outfile.write("\n")
+                files_txt = infile.read()
+                outfile.write(files_txt)
+            outfile.write(end)
+
+
+def merge_ipynb_files(filenames: list[str], dest: str = "dest.ipynb"):
+    nbmerge.write_notebook(nbmerge.merge_notebooks(dest, filenames, verbose=True), dest)
+
+
+""" Times """
+
+
+def now(utc=False, offset_h=0, offset_m=0, offset_s=0) -> datetime:
+    offset = timedelta(hours=offset_h, minutes=offset_m, seconds=offset_s)
+    return offset + (datetime.utcnow() if utc else datetime.now())
+
+
+def to_datetime(obj, pattern: str = "%Y/%m/%d %H:%M:%S") -> datetime:
+    if type(obj) is datetime:
+        return obj
+    try:
+        return datetime.fromtimestamp(int(obj))
+    except (ValueError, AttributeError, TypeError):
+        default_value = pattern == "%Y/%m/%d %H:%M:%S"
+        str_obj = str(obj).replace("-", "/") if default_value else str(obj)
+        return datetime.strptime(str_obj, pattern)
+
+
+def to_timestamp(obj, pattern: str = "%Y/%m/%d %H:%M:%S") -> float:
+    if type(obj) in (float, int):
+        return obj
+    try:
+        return obj.timestamp()
+    except (ValueError, AttributeError, TypeError):
+        return to_timestamp(to_datetime(obj, pattern=pattern))
+
+
+def elapsed_timedelta(date_time: datetime):
+    return datetime.now() - date_time
+
+
+def elapsed_seconds(date_time: datetime):
+    return (datetime.now() - date_time).total_seconds()
+
+
+def elapsed_minutes(date_time: datetime):
+    return elapsed_seconds(date_time) / 60
+
+
+def generate_datetime(start: datetime, end: datetime, freq="T") -> list[str]:
+    return sorted(map(str, pd.date_range(start=start, end=end, freq=freq).to_pydatetime().tolist()))
+
+
+def timeit_trivial(fun: Callable, *args, n=100):
+    start = now()
+    for _ in range(n):
+        fun(*args)
+    execution_time = round(elapsed_seconds(start) / n * 1000, 3)
+    print(fun.__name__, execution_time, "ms")
+    return execution_time
+
+
+def timeit(fun: Callable, *args) -> float:
+    """ Estimate an execution time of a function as milliseconds
+    Repeat at least 10 times the function to memoize it into the cache then
+    |Repeat at least 1 time the function to refresh it into the cache
+    |Estimate the execution time with at least 10 executions, this is regrouped as one execution time by calculating its average
+    |Repeat that 5 times
+    Calculate the average of estimated executions times
+    Return the average of estimated executions times as milliseconds
+    """
+    repeat_call_min = 10
+    sec_elapsed_minimal = 1
+    total_repeat = 5
+    times_estimate = []
+    start = now()
+    i = 0
+    while elapsed_seconds(start) < sec_elapsed_minimal or i < repeat_call_min:
+        # "charging in cache"
+        fun() if len(args) == 0 else fun(*args)
+        i += 1
+        if elapsed_seconds(start) <= sec_elapsed_minimal:
+            repeat_call_min += 1
+    for _ in range(total_repeat):
+        for _ in range(int(repeat_call_min / 10)):
+            fun() if len(args) == 0 else fun(*args)
+        start = now()
+        for _ in range(repeat_call_min):
+            fun() if len(args) == 0 else fun(*args)
+        times_estimate.append(elapsed_seconds(start) / repeat_call_min)
+    execution_time = round(sum(times_estimate) / len(times_estimate) * 1000, 3)
+    print(fun.__name__, execution_time, "ms", len(times_estimate) * repeat_call_min, "called")
+    return execution_time
+
+
+def search_tz(city: str) -> pytz:
+    """ Cherche une ville dans pytz.all_timezones et retourne sa timezone. """
+    return pytz.timezone(list(name for name in pytz.all_timezones if city.capitalize() in name)[0])
+
+
+""" Introspection """
+
+
+def print_code_function(fun: Callable):
+    print("\n".join(inspect.getsource(fun).split("\n")))
 
 
 if __name__ == '__main__':

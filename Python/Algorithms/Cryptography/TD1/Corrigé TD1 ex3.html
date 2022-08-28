@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>~/monge/W3/Crypto/otp3.py.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v6">
+<meta name="syntax" content="python">
+<meta name="settings" content="use_css">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #000000; background-color: #ffffff; }
+body { font-family: monospace; color: #000000; background-color: #ffffff; }
+.Comment { color: #0000ff; }
+.Statement { color: #a52a2a; font-weight: bold; }
+.Identifier { color: #008b8b; }
+.Constant { color: #ff00ff; }
+-->
+</style>
+</head>
+<body>
+<pre>
+u=[<span class="Constant">'99'</span>, <span class="Constant">'f0'</span>, <span class="Constant">'11'</span>, <span class="Constant">'31'</span>, <span class="Constant">'3f'</span>, <span class="Constant">'f6'</span>, <span class="Constant">'9d'</span>, <span class="Constant">'52'</span>]
+v=[<span class="Constant">'89'</span>, <span class="Constant">'fa'</span>, <span class="Constant">'1f'</span>, <span class="Constant">'34'</span>, <span class="Constant">'38'</span>, <span class="Constant">'eb'</span>, <span class="Constant">'8c'</span>, <span class="Constant">'59'</span>]
+
+
+
+u = [<span class="Identifier">int</span>(x,<span class="Constant">16</span>) <span class="Statement">for</span> x <span class="Statement">in</span> u]
+v = [<span class="Identifier">int</span>(x,<span class="Constant">16</span>) <span class="Statement">for</span> x <span class="Statement">in</span> v]
+
+xx = [u[i]^v[i] <span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">range</span>(<span class="Identifier">len</span>(u))]
+
+dd = <span class="Identifier">open</span>(<span class="Constant">'/usr/share/dict/words'</span>,<span class="Constant">'r'</span>).readlines()
+
+dd = [w.rstrip().lower() <span class="Statement">for</span> w <span class="Statement">in</span> dd]
+dd8=[<span class="Identifier">list</span>(<span class="Identifier">map</span>(<span class="Identifier">ord</span>,w)) <span class="Statement">for</span> w <span class="Statement">in</span> dd <span class="Statement">if</span> <span class="Identifier">len</span>(w)==<span class="Constant">8</span>]
+
+<span class="Statement">def</span> <span class="Identifier">f</span>(w):
+    <span class="Statement">return</span> [w[i]^xx[i] <span class="Statement">for</span> i <span class="Statement">in</span> <span class="Identifier">range</span>(<span class="Constant">8</span>)]
+
+res = [w <span class="Statement">for</span> w <span class="Statement">in</span> dd8 <span class="Statement">if</span> f(w) <span class="Statement">in</span> dd8]
+
+<span class="Identifier">print</span> (<span class="Identifier">len</span>(res))
+<span class="Identifier">print</span> (<span class="Constant">''</span>.join(<span class="Identifier">map</span>(<span class="Identifier">chr</span>,res[<span class="Constant">0</span>])))
+<span class="Identifier">print</span> (<span class="Constant">''</span>.join(<span class="Identifier">map</span>(<span class="Identifier">chr</span>,res[<span class="Constant">1</span>])))
+
+
+<span class="Comment">## 2</span>
+<span class="Comment">## computer</span>
+<span class="Comment">## security</span>
+</pre>
+</body>
+</html>
