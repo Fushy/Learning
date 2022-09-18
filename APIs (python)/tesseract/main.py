@@ -1,5 +1,6 @@
 # pip install pillow pytesseract googletrans==3.1.0
 # pip install translate-api
+# https://nanonets.com/blog/ocr-with-tesseract/#tesseract-ocr
 from PIL import Image
 import pytesseract
 from googletrans import Translator

@@ -192,7 +192,7 @@ def timeit(fun: Callable, *args) -> float:
         for _ in range(repeat_call_min):
             fun() if len(args) == 0 else fun(*args)
         times_estimate.append(elapsed_seconds(start) / repeat_call_min)
-    execution_time = round(sum(times_estimate) / len(times_estimate) * 1000, 3)
+    execution_time = round(sum(times_estimate) / len(times_estimate) * 1000, 6)
     print(fun.__name__, execution_time, "ms", len(times_estimate) * repeat_call_min, "called")
     return execution_time
 
