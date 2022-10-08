@@ -58,6 +58,38 @@ def fibonacci_iter(n):
         a, b = b, a + b
     return a
 
+def ackermann(m, n):
+    if m <= 0:
+        return n + 1
+    elif n == 0:
+        return ackermann(m - 1, 1)
+    elif n > 0:
+        return ackermann(m - 1, ackermann(m, n - 1))
+
+
+def is_even(n: int):
+    return n % 2 == 0
+
+
+def is_odd(n: int):
+    return n % 2 != 0
+
+def get_decimal(x: float):
+    return x % 1
+
+def roundup(x: float):
+    return int(x) if get_decimal(x) == 0 else int(x) + 1
+
+def pow_rec(a: float, n: int):
+    if n == 1:
+        return a
+    elif n % 2 == 0:
+        result = pow_rec(a, n // 2)
+        return result * result
+    elif n % 2 == 1:
+        result = pow_rec(a, n // 2)
+        return result * result * a
+
 
 if __name__ == '__main__':
     fibonacci_rec(100)

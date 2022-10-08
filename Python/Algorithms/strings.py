@@ -3,12 +3,13 @@ def is_palindrome_py(word):
     return word == word[::-1]
 
 
-def is_palindrome_rec(word, i=0):
-    if i + 1 > len(word) // 2:
+def is_palindrome_rec(text):
+    if len(text) <= 1:
         return True
-    elif word[i] == word[-1 - i]:
-        return is_palindrome_rec(word, i + 1)
-    return False
+    head = text[0]
+    middle = text[1:-1]
+    last = text[-1]
+    return head == last and is_palindrome_rec(middle)
 
 
 if __name__ == '__main__':

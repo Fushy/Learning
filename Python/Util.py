@@ -7,6 +7,8 @@ import nbmerge
 import pandas as pd
 import pytz
 
+# Si le debug de PyCharm bug, check les __repr__"
+
 """ Lists """
 
 

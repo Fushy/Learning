@@ -163,3 +163,10 @@ The least-significant byte is the rightmost byte
 
 + ...0 00000000 00000000 00001111 01100010:\
   62 0F 00 00...
+
+# .
+
+## Heuristic 
+
+A technique designed for solving a problem more quickly when classic methods are too slow or for finding an approximate solution when classic methods fail to find any exact solution.</br>
+A heuristic function, also simply called a heuristic, is a function that ranks alternatives in search algorithms at each branching step based on available information to decide which branch to follow
