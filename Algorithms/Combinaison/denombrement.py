@@ -164,7 +164,8 @@ if __name__ == '__main__':
     print("{} {}".format("permutation", F).ljust(spaces), permutations(F))
     print("{} {}".format("permutations_all_size", F).ljust(spaces), permutations_all_size(F))
     print("{} {} {}".format("permutation", "Nan", "join_str=True").ljust(spaces), permutations("Nan", join_str=True))
-    print("{} {} {}".format("permutation", "Nan", "join_str=True, duplicate=False").ljust(spaces), permutations("Nan", join_str=True, duplicate=False))
+    print("{} {} {}".format("permutation", "Nan", "join_str=True, duplicate=False").ljust(spaces),
+          permutations("Nan", join_str=True, duplicate=False))
 
     print("{} {} {}".format("arrangement", F, 1).ljust(spaces), arrangement(F, 1))
     print("{} {} {}".format("arrangement", F, 2).ljust(spaces), arrangement(F, 2))
