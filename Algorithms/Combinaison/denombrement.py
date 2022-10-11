@@ -1,14 +1,14 @@
-# https://mathematice.fr/fichiers/bts/denombrement.pdf
+# The term n choose k refers to the number of possible combinations (without repetition) of k elements
+# that can be selected from a set of n elements. 4 choose 2 is 6 because there are six ways to choose two elements
+# from a set of four elements like {A, B, C, D}: {A, B}, {A, C}, {A, D}, {B, C}, {B, D}, and {C, D}
 
 import itertools
 import math
 from typing import Iterable, Callable, Sized, Any, TypeVar
 
-A = TypeVar("A")
-B = TypeVar("B")
+A = Iterable["A"]
+B = Iterable["B"]
 
-
-# Pas d'utilisations de set pour les ensembles afin d'obtenir un ensemble trie
 
 def cardinal_produit_cartesien(n: int, k: int) -> int:
     return n * k
@@ -53,8 +53,9 @@ def cardinal_permutation(n: int) -> int:
 
 
 def permutations(E, n=None, join_str=False, duplicate=True):
-    """ Un arrangement de n elements.
-        On tire successivement et sans remise dans un ensemble E de n elements, n elements. """
+    """ Représentation ordonné contenant tous les elements d'un ensemble
+        Un arrangement de n elements.
+            On tire successivement et sans remise dans un ensemble E de n elements, n elements. """
     if n is None:
         n = len(E)
     if join_str:
@@ -78,11 +79,11 @@ def arrangement(E, k):
     return sorted(itertools.permutations(E, k))
 
 
-def cardinal_combinaison(n: int, k: int) -> int:
+def cardinal_combinaisons(n: int, k: int) -> int:
     return math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
 
 
-def combinaison(E, k):
+def combinaisons(E, k):
     """ Combinaison de k elements choisis parmi E.
         Dans un ensemble E de n elements, on tire simultanement k elements.
         Ensemble de sous-ensemble de cardinal k d'un ensemble E. """
@@ -90,8 +91,8 @@ def combinaison(E, k):
     return [partie for partie in sous_ensembles_differents(E) if len(partie) == k]
 
 
-def combinaison_sans_repetition(E, k):
-    return sorted(set(combinaison(E, k)))
+def combinaisons_sans_repetition(E, k):
+    return sorted(set(combinaisons(E, k)))
 
 
 def cardinal_sous_ensembles_differents(cardinal: int) -> int:
@@ -172,10 +173,10 @@ if __name__ == '__main__':
     print("{} {} {}".format("arrangement", F, 3).ljust(spaces), arrangement(F, 3))
     print("{} {} {}".format("arrangement", F, 4).ljust(spaces), arrangement(F, 4))
 
-    print("{} {} {}".format("combinaison", F, 1).ljust(spaces), combinaison(F, 1))
-    print("{} {} {}".format("combinaison", F, 2).ljust(spaces), combinaison(F, 2))
-    print("{} {} {}".format("combinaison", F, 3).ljust(spaces), combinaison(F, 3))
-    print("{} {} {}".format("combinaison", F, 4).ljust(spaces), combinaison(F, 4))
+    print("{} {} {}".format("combinaisons", F, 1).ljust(spaces), combinaisons(F, 1))
+    print("{} {} {}".format("combinaisons", F, 2).ljust(spaces), combinaisons(F, 2))
+    print("{} {} {}".format("combinaisons", F, 3).ljust(spaces), combinaisons(F, 3))
+    print("{} {} {}".format("combinaisons", F, 4).ljust(spaces), combinaisons(F, 4))
 
     print("{} {}".format("sous_ensembles_differents", E).ljust(spaces), sous_ensembles_differents(E))
     print("{} {}".format("sous_ensembles_differents", F).ljust(spaces), sous_ensembles_differents(F))
