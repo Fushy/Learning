@@ -126,8 +126,9 @@ def rotates(E: Iterable and Sized) -> list[Any]:
 def classes_equivalences(E: Iterable, relation: Callable[[Iterable and Sized], list] = rotates) -> list:
     """ Regroupe toutes les classes d'equivalence sous forme d'une liste grâce à la relation :relation:.
     >>> classes_equivalences(["123", "231", "132"])
-    [(('1', '2', '3'), ('2', '3', '1'), ('3', '1', '2')),
-    (('1', '3', '2'), ('2', '1', '3'), ('3', '2', '1'))]
+    [(('1', '2', '3'), ('3', '1', '2'), ('2', '3', '1')),
+    (('1', '3', '2'), ('2', '1', '3'), ('3', '2', '1')),
+    (('2', '3', '1'), ('1', '2', '3'), ('3', '1', '2'))]
     """
     classe_equivalence = {}.fromkeys(tuple(classe) for classe in map(relation, E))
     return sorted(classe_equivalence, key=lambda x: (len(x), x))
@@ -162,8 +163,8 @@ if __name__ == '__main__':
     print("{} {}".format("permutation", E).ljust(spaces), permutations(E))
     print("{} {}".format("permutation", F).ljust(spaces), permutations(F))
     print("{} {}".format("permutations_all_size", F).ljust(spaces), permutations_all_size(F))
-    print("{} {}".format("permutation", "Nan").ljust(spaces), permutations("Nan", join_str=True))
-    print("{} {}".format("permutation", "Nan").ljust(spaces), permutations("Nan", join_str=True, duplicate=False))
+    print("{} {} {}".format("permutation", "Nan", "join_str=True").ljust(spaces), permutations("Nan", join_str=True))
+    print("{} {} {}".format("permutation", "Nan", "join_str=True, duplicate=False").ljust(spaces), permutations("Nan", join_str=True, duplicate=False))
 
     print("{} {} {}".format("arrangement", F, 1).ljust(spaces), arrangement(F, 1))
     print("{} {} {}".format("arrangement", F, 2).ljust(spaces), arrangement(F, 2))
