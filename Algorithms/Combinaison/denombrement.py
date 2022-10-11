@@ -1,5 +1,4 @@
 # https://mathematice.fr/fichiers/bts/denombrement.pdf
-# TODO english trad
 
 import itertools
 import math
