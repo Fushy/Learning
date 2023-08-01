@@ -164,9 +164,18 @@ The least-significant byte is the rightmost byte
 + ...0 00000000 00000000 00001111 01100010:\
   62 0F 00 00...
 
-# .
+# Databases
+
+## ORM (object-relational mapper)
+An object-relational mapper (ORM) is a tool that allows developers to interact with a database using objects in their programming language, rather than writing raw SQL queries. An ORM maps the data stored in a database to objects in the programming language, allowing developers to create, read, update, and delete data using these objects.
+
+# Algorithms
 
 ## Heuristic 
 
 A technique designed for solving a problem more quickly when classic methods are too slow or for finding an approximate solution when classic methods fail to find any exact solution.</br>
 A heuristic function, also simply called a heuristic, is a function that ranks alternatives in search algorithms at each branching step based on available information to decide which branch to follow
+
+
+###
+ORM

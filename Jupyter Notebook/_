@@ -1,0 +1,8 @@
+pip install jupyter
+pip install jupyter_contrib_nbextensions
+on a notebook: edit -> nbextensions config
+
+jupyter nbextension enable toc2/main
+jupyter labextension install @jupyterlab/toc
+pip install nbconvert
+jupyter contrib nbextension install --user

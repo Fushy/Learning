@@ -1,23 +1,31 @@
 # Headers
 
+
+# This is an H1 line
 This is an H1 line
 =
-This is an H2 line
--
 This is an H1 line
 ==================
+
+## This is an H2 line
+This is an H2 line
+-
 This is an H2 line
 ------------------
 
-# This is an H1 line
-
-## This is an H2 line
+### This is an H3 line
 
 ###### This is an H6 line
 
 ###### # This is an H6 line
 
 # Blockquoting
+
+``` python
+# block of code
+print("Hello")
+```
+
 
 > This is a blockquote with two paragraphs.
 > ssssssssssssssssssssssssssssssssssssssss
@@ -70,9 +78,14 @@ This is an H2 line
 2. Two
 3. Three
 
+1. Four
+2. Five
+3. Six
+
+
 1. One
-20. Two
-2. Three
+2. Two
+3. Three
 
 <ol>
     <li>One</li>
@@ -89,6 +102,11 @@ This is an H2 line
     1. Two
         1. Three
             1. Four
+
+
+1. [ ] One
+2. [ ] Two
+3. [ ] Three
 
 * To put a blockquote within a list item, > delimiters need to be indented
   > SSSSSSSSSSSSSSSSSSSS
@@ -113,4 +131,3 @@ This is an H2 line
 1986. This is a list
 
 1986\. This is not a list
-

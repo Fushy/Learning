@@ -1,12 +1,16 @@
 import inspect
+import re
 from datetime import timedelta, datetime
 from struct import pack, unpack
 from typing import Iterable, Sized, Callable
 
-import nbmerge
+# import nbmerge
 import pandas as pd
 import pytz
-
+from keras.datasets import mnist
+training_set, test_set = mnist.load_data()
+train_images, train_labels = training_set
+test_images, test_labels = test_set
 # Si le debug de PyCharm bug, check les __repr__"
 
 """ Lists """
@@ -109,8 +113,8 @@ def merge_files(filenames: list[str], dest: str = "main.py", end="\n"):
             outfile.write(end)
 
 
-def merge_ipynb_files(filenames: list[str], dest: str = "dest.ipynb"):
-    nbmerge.write_notebook(nbmerge.merge_notebooks(dest, filenames, verbose=True), dest)
+# def merge_ipynb_files(filenames: list[str], dest: str = "dest.ipynb"):
+#     nbmerge.write_notebook(nbmerge.merge_notebooks(dest, filenames, verbose=True), dest)
 
 
 """ Times """
@@ -203,6 +207,23 @@ def search_tz(city: str) -> pytz:
     """ Cherche une ville dans pytz.all_timezones et retourne sa timezone. """
     return pytz.timezone(list(name for name in pytz.all_timezones if city.capitalize() in name)[0])
 
+
+""" Regex """
+
+re_decimal = re.compile(r"([0-9]+)\.([0-9]+)")
+re_int = re.compile(r"([-+]?[0-9]+([eE][-+]?[0-9]+)?)")
+re_float = re.compile(r"([-+]?[0-9,]*\.?[0-9,]+([eE][-+]?[0-9,]+)?)")
+re_time_hms = re.compile(r"((([0-9]?[0-9]) *h *)?(([0-9]?[0-9]) *m *)?(([0-9]?[0-9]) *s *)?)")
+re_time_dot = re.compile(r"((([0-9]?[0-9]) *: *)?(([0-9]?[0-9]) *: *)([0-9]?[0-9]))")
+re_alphanum_char = re.compile(r"([a-zA-Z0-9]+)")
+re_num_char = re.compile(r"([0-9]+)")
+re_alpha_char = re.compile(r"([a-zA-Z]+)")
+re_html_blaze = re.compile(r"(<.*?>)")
+
+""" print """
+
+def pr(*args):
+    list(map(print, args))
 
 """ Introspection """
 

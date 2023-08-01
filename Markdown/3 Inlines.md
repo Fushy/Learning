@@ -1,5 +1,4 @@
-<a id=Emphasis></a>
-
+<a id=Anchor></a>
 # Emphasis
 
 SSSSS _em HTML tag_ SSSSS
@@ -18,7 +17,7 @@ SSSSS __strong HTML tag__ SSSSS
 
 SSSSS ~~x HTML tag~~ SSSSS
 
-This is a `code text`
+This is a `code text` and ``another code text``
 
 # Table
 
@@ -31,14 +30,17 @@ This is a `code text`
 
 ## Same file Anchor
 
-Go to Emphasis [Emphasis](#Emphasis).
+def anchor_name(name): return name.lower().replace(" ", "-").replace(":", "-")<br>
+Go to [Emphasis](#Anchor) (no spaces)<br>
+Go to [# Image](#images) (lower case)<br>
+Go to [## Link url](#link-url)<br>
 
 ## Local file Anchor
 
 + Use %20 to represent space into file name
 + Case sensitive
 + specify .md
-+ To aim section, all minimise letter with - as space
++ To target section, use anchor_name function
 
 [Link to local file](1%20Syntax.md) 1 Syntax.md
 

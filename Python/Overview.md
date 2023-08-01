@@ -48,6 +48,9 @@
 
 ## Code
 
+## Grammar
+https://docs.python.org/3/reference/grammar.html
+
 ### Syntax notable
 
 + Use # to comment code lines
