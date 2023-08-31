@@ -1,0 +1,21 @@
+conda create --name env_name python=3.x
+conda install package-name
+conda search package-name
+conda update package-name
+conda remove package-name
+
+conda env list
+conda info --envs
+conda list
+conda info
+
+conda activate env_name
+conda deactivate
+conda env remove --name env_name
+conda env export > environment.yml
+conda update conda
+
+pip cache purge
+conda clean -t
+conda clean -a
+conda clean --all
