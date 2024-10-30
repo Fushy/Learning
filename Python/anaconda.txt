@@ -1,8 +1,12 @@
+conda env export > env_name.yml
 conda create --name env_name python=3.x
+conda activate env_name
+
 conda install package-name
 conda search package-name
 conda update package-name
 conda remove package-name
+conda init powershell
 
 conda env list
 conda info --envs
@@ -12,7 +16,6 @@ conda info
 conda activate env_name
 conda deactivate
 conda env remove --name env_name
-conda env export > environment.yml
 conda update conda
 
 pip cache purge

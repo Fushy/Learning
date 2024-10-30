@@ -1,0 +1,6 @@
+set a folder as a library (Interpreter Paths)
+    File -> Settings... -> Project -> Python Interpreter -> Python Interpreter list: or Gear symbol -> Scroll down until Show all ->
+    Tree folder icon -> + select the folder -> done
+
+if debugger is not working anymore
+	File -> Settings... -> Build, Execution, Deployment -> Python Debugger -> Change PyQt debugger, or change other things on this page

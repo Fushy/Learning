@@ -4,10 +4,12 @@ from datetime import timedelta, datetime
 from struct import pack, unpack
 from typing import Iterable, Sized, Callable
 
+import numpy as np
 # import nbmerge
 import pandas as pd
 import pytz
 from keras.datasets import mnist
+
 training_set, test_set = mnist.load_data()
 train_images, train_labels = training_set
 test_images, test_labels = test_set
@@ -27,6 +29,12 @@ def str_to_ord(text: str):
 def contain_all(base: Iterable and Sized, elements: set):
     return all((element in base for element in elements))
 
+
+def gen_list_around_value(value, length):
+    start = value - (length // 2) * (value / length)
+    if length % 2 == 0:
+        start += (value / length) / 2
+    return [start + i * (value / length) for i in range(length)]
 
 """ Logical Operators """
 
